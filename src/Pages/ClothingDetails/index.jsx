@@ -20,8 +20,18 @@ return (
     <div>
         {clothing && (
             <div>
-                <h1>{clothing.title}</h1>
+                <img src={clothing.image} width={200} height={250}/>
+                <h3>{clothing.title}</h3>
+                <p>{clothing.type}</p>
                 <p>{clothing.description}</p>
+                
+                <p>{clothing.brand}</p>
+                <p>{clothing.size}</p>
+                <p>{clothing.careInstruction}</p>
+                <p>{clothing.season}</p>
+                
+                
+
                 
                 <Link to = {`/clothing/edit/${clothingId}`}>Edit Clothing</Link>
             </div>
