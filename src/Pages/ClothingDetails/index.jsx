@@ -104,6 +104,39 @@ function ClothingDetailsPage() {
     createNoteRequest();
     
   };
+  const [editedNoteId, setEditedNoteId] = useState(null);
+  const [editedNoteContent, setEditedNoteContent] = useState('');
+
+  // Function to edit a note
+  const editNote = (noteId, currentContent) => {
+    setEditedNoteId(noteId);
+    setEditedNoteContent(currentContent);
+  };
+
+  // Function to save edited note
+  const saveEditedNote = async (noteId) => {
+    async function editNoteRequest() {
+      try {
+        const storedToken = localStorage.getItem('authToken');
+        await axios.put(
+          `${API_URL}/api/note/update/${clothingId}/${noteId}`,
+          { content: editedNoteContent },
+          {
+            headers: {
+              Authorization: `Bearer ${storedToken}`,
+            },
+          }
+        );
+        refreshClothing();
+        setEditedNoteId(null);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    editNoteRequest();
+  };
+
+  
   const deleteNote = (noteId) => {
     async function deleteNoteRequest() {
       try {
@@ -135,11 +168,27 @@ function ClothingDetailsPage() {
 
           {/* Display notes */}
           <ul>
-            {clothing.note.map((note) => (
-              <li key={note._id}>{note.content}
-              <button onClick={() => deleteNote(note._id)}>Delete Note</button></li>
-            ))}
-          </ul>
+        {clothing.note.map((note) => (
+          <li key={note._id}>
+            {editedNoteId === note._id ? (
+              <>
+                <textarea
+                  value={editedNoteContent}
+                  onChange={(e) => setEditedNoteContent(e.target.value)}
+                  placeholder={note.content}
+                />
+                <button onClick={() => saveEditedNote(note._id)}>Save Note</button>
+              </>
+            ) : (
+              <>
+                {note.content}
+                <button onClick={() => editNote(note._id, note.content)}>Edit Note</button>
+                <button onClick={() => deleteNote(note._id)}>Delete Note</button>
+              </>
+            )}
+          </li>
+        ))}
+      </ul>
 
           {/* Add Note */}
           <div>
