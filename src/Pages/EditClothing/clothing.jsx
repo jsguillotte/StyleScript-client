@@ -13,7 +13,7 @@ function EditClothing() {
     const [image, setImage] = useState('');
     const [brand, setBrand] = useState('');
     const [size, setSize] = useState('');
-    const [careInstruction, setCareInstruction] = useState('');
+    const [careInstructions, setCareInstructions] = useState('');
     const [season, setSeason] = useState('');
     const [type, setType] = useState('');
     const [color, setColor] = useState('');
@@ -30,7 +30,7 @@ function EditClothing() {
             setImage(oneClothing.image);
             setBrand(oneClothing.brand);
             setSize(oneClothing.size);
-            setCareInstruction(oneClothing.careInstruction);
+            setCareInstructions(oneClothing.careInstructions);
             setSeason(oneClothing.season);
             setType(oneClothing.type);
             setColor(oneClothing.color);
@@ -42,7 +42,7 @@ function EditClothing() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const requestBody = {title, description, image, type, color, brand, size, careInstruction, season}
+        const requestBody = {title, description, image, type, color, brand, size, careInstructions, season}
 
         axios.put(`${API_URL}/api/clothing/edit/${clothingId}`, requestBody)
         .then(()=>{
@@ -51,7 +51,7 @@ function EditClothing() {
             setImage('');
             setBrand('');
             setSize('');
-            setCareInstruction('');
+            setCareInstructions('');
             setSeason('');
             setType('');
             setColor('');
@@ -104,7 +104,7 @@ function EditClothing() {
                 {/*Create  a label for care instructions*/}
                 <label>
                     Care Instructions:
-                    <input type="text" name='careInstruction' value={careInstruction} onChange={(e) => setCareInstruction(e.target.value)} />
+                    <input type="text" name='careInstructions' value={careInstructions} onChange={(e) => setCareInstructions(e.target.value)} />
                 </label>
                 {/*Create label for size*/}
                 <label>

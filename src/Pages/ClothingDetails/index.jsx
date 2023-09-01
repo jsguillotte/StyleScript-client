@@ -80,7 +80,7 @@ return (
                 
                 <p>{clothing.brand}</p>
                 <p>{clothing.size}</p>
-                <p>{clothing.careInstruction}</p>
+                <p>{clothing.careInstructions}</p>
                 <p>{clothing.season}</p>
                 
                 
