@@ -22,7 +22,7 @@ function LoginPage() {
             .then((response) => {
                 storeToken(response.data.authToken)
                 authenticateUser();
-                navigate("/clothing");
+                navigate("/");
             }).catch((error) => {
                 const errorDescription = error.response.data.message;
                 setErrorMessage(errorDescription);
