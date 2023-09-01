@@ -102,6 +102,28 @@ function ClothingDetailsPage() {
       }
     }
     createNoteRequest();
+    
+  };
+  const deleteNote = (noteId) => {
+    async function deleteNoteRequest() {
+      try {
+        const storedToken = localStorage.getItem('authToken');
+        await axios.delete(`${API_URL}/api/note/delete/${clothingId}/${noteId}`, {
+          headers: {
+            Authorization: `Bearer ${storedToken}`,
+          },
+        });
+        refreshClothing();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    // Prompt the user for confirmation before deleting the note
+    const confirmDelete = window.confirm('Are you sure you want to delete this note?');
+    if (confirmDelete) {
+      deleteNoteRequest();
+    }
   };
 
   return (
@@ -114,7 +136,8 @@ function ClothingDetailsPage() {
           {/* Display notes */}
           <ul>
             {clothing.note.map((note) => (
-              <li key={note._id}>{note.content}</li>
+              <li key={note._id}>{note.content}
+              <button onClick={() => deleteNote(note._id)}>Delete Note</button></li>
             ))}
           </ul>
 
@@ -126,6 +149,7 @@ function ClothingDetailsPage() {
               placeholder="Enter your note"
             />
             <button onClick={createNote}>Add Note</button>
+            
           </div>
 
           <button onClick={addToLaundry} disabled={isInLaundry}>
