@@ -12,11 +12,15 @@ function ClothingListPage() {
   useEffect(() => {
     async function fetchClothing() {
       try {
-        const response = await axios.get(`${API_URL}/api/clothing`);
+        const storedToken = localStorage.getItem("authToken");
+        const response = await axios.get(`${API_URL}/api/clothing`, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        });
         const clothingData = response.data;
+        console.log(clothingData.userClothing);
 
         // Filter clothing items based on the selected weather filter
-        const filteredClothing = clothingData.filter((clothing) => {
+        const filteredClothing = clothingData.userClothing.filter((clothing) => {
           return (
             selectedWeatherFilter === "all" ||
             clothing.season === "both" ||
@@ -85,12 +89,7 @@ function ClothingListPage() {
             {items.map((clothing) => (
               <div key={clothing._id}>
                 <Link to={`/clothing/${clothing._id}`}>
-                  <img
-                    src={clothing.image}  
-                    width={200}
-                    height={250}
-                
-                  />
+                  <img src={clothing.image} width={200} height={250} />
                   <h3>{clothing.title}</h3>
                 </Link>
               </div>
@@ -103,14 +102,6 @@ function ClothingListPage() {
 }
 
 export default ClothingListPage;
-
-
-
-
-
-
-
-
 
 /*import { useState, useEffect } from "react";
 import axios from "axios";
