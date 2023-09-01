@@ -1,4 +1,118 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
+const API_URL = "http://localhost:5005";
+
+function ClothingListPage() {
+  const [sortedClothing, setSortedClothing] = useState({});
+  const [selectedWeatherFilter, setSelectedWeatherFilter] = useState("all"); // Default to "all" weather
+  const [searchQuery, setSearchQuery] = useState(""); // State for search input
+
+  useEffect(() => {
+    async function fetchClothing() {
+      try {
+        const response = await axios.get(`${API_URL}/api/clothing`);
+        const clothingData = response.data;
+
+        // Filter clothing items based on the selected weather filter
+        const filteredClothing = clothingData.filter((clothing) => {
+          return (
+            selectedWeatherFilter === "all" ||
+            clothing.season === "both" ||
+            clothing.season === selectedWeatherFilter
+          );
+        });
+
+        // Filter clothing items by name based on search query (case-insensitive)
+        const filteredByName = filteredClothing.filter((clothing) =>
+          clothing.title.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+
+        // Create an object to store clothing items sorted by type
+        const sortedByType = filteredByName.reduce((accumulator, item) => {
+          if (!accumulator[item.type]) {
+            accumulator[item.type] = [];
+          }
+          accumulator[item.type].push(item);
+          return accumulator;
+        }, {});
+
+        setSortedClothing(sortedByType);
+      } catch (error) {
+        console.error("Error fetching clothing:", error);
+      }
+    }
+
+    fetchClothing();
+  }, [selectedWeatherFilter, searchQuery]);
+
+  const handleWeatherFilterChange = (filter) => {
+    setSelectedWeatherFilter(filter);
+  };
+
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  return (
+    <div>
+      <div>
+        <label>Select Weather:</label>
+        <select
+          onChange={(e) => handleWeatherFilterChange(e.target.value)}
+          value={selectedWeatherFilter}
+        >
+          <option value="all">All</option>
+          <option value="warm">Warm</option>
+          <option value="cold">Cold</option>
+        </select>
+      </div>
+      <div>
+        <label>Search by Name:</label>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={handleSearchInputChange}
+        />
+      </div>
+      {/* Display clothing items */}
+      {Object.entries(sortedClothing).map(([type, items]) => (
+        <div key={type}>
+          <h2>{type.toUpperCase()}</h2>
+          <div className="clothing-section">
+            {items.map((clothing) => (
+              <div key={clothing._id}>
+                <Link to={`/clothing/${clothing._id}`}>
+                  <img
+                    src={clothing.image}  
+                    width={200}
+                    height={250}
+                
+                  />
+                  <h3>{clothing.title}</h3>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default ClothingListPage;
+
+
+
+
+
+
+
+
+
+/*import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -17,14 +131,19 @@ function ClothingListPage() {
       });
 
       console.log("response data:", response.data);
-      await response.data.forEach((element) => {
-        const filter = []
+      const filter = response.data.forEach((element) => {
         if (element.type === "tops") {
             filter.push(element);
-          setTops(filter);
+          setTops(...filter, filter);
         }
-      });
-    } catch (error) {}
+      }); 
+
+      /* const filter = response.data.filter((clothing) => {clothing.type === "tops"})
+      console.log("filter", filter);
+      setTops(filter); 
+    } catch (error) {
+        console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -35,7 +154,7 @@ function ClothingListPage() {
 
     filterClothingByType();
     
-    /* if(response.data.type === "jeans" ,  */
+    /* if(response.data.type === "jeans" ,  
   }, []);
  console.log("tops", tops);
   return (
@@ -63,9 +182,9 @@ function ClothingListPage() {
                    </Link> 
                 </div>
             )
-          })}  */}
+          })}  
     </div>
   );
 }
 
-export default ClothingListPage;
+export default ClothingListPage; */

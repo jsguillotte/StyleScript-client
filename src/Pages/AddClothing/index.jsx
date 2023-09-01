@@ -72,7 +72,7 @@ const handleSubmit = (e) => {
             <label>
                 Weather:
                 <select name="season" value={season} onChange={(e) => setSeason(e.target.value)}>
-                    <option value="hot">Hot</option>
+                    <option value="warm">Warm</option>
                     <option value="cold">Cold</option>
                     <option value="both">Both</option>
                 </select>
