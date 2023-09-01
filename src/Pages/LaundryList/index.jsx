@@ -31,11 +31,37 @@ function LaundryList() {
     fetchLaundry();
   }, []);
 
+  // Function to remove an item from the laundry list
+  const removeLaundryItem = async (itemId) => {
+    try {
+      const storedToken = localStorage.getItem("authToken");
+      await axios.delete(
+        `${API_URL}/api/remove-from-laundry/${itemId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${storedToken}`,
+          },
+        }
+      );
+
+      // After successfully removing the item, update the laundry list
+      const updatedLaundry = laundry.filter((item) => item._id !== itemId);
+      setLaundry(updatedLaundry);
+    } catch (error) {
+      console.error("Error removing from laundry:", error);
+    }
+  };
+
+
   return (
     <div>
       <h2>Laundry List</h2>
       <ul>
-        {laundry && laundry.map((item) => <li key={item._id}>{item.title}</li>)}
+        {laundry && laundry.map((item) => 
+        <li key={item._id}>
+          {item.title}
+          <button onClick={() => removeLaundryItem(item._id)}>Remove from Laundry</button>
+          </li>)}
       </ul>
     </div>
   );
