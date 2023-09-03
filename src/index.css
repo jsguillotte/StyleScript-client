@@ -67,3 +67,33 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.clothing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+  grid-auto-rows: 1fr;
+   /* Adjust the height as needed */
+  gap: 20px; /* Adjust the gap between items as needed */
+}
+
+.clothing-item {
+  display: flex;
+  border: 1px solid #ccc; /* Add a border around each item if desired */
+  border-radius: 5px;
+  padding: 10px; 
+  text-align: center;
+  
+  
+
+
+ 
+  
+}
+
+
+.clothing-item img {
+  width: 100%;
+  height: auto;
+
+  
+}
+

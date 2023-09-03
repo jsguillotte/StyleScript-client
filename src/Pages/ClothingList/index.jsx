@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "../../index.css";
+
 
 const API_URL = "http://localhost:5005";
 
@@ -31,7 +33,8 @@ function ClothingListPage() {
 
         // Filter clothing items by name based on search query (case-insensitive)
         const filteredByName = filteredClothing.filter((clothing) =>
-          clothing.title.toLowerCase().includes(searchQuery.toLowerCase())
+          clothing.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          clothing.type.toLowerCase().includes(searchQuery.toLowerCase())
         );
 
         // Create an object to store clothing items sorted by type
@@ -74,7 +77,7 @@ function ClothingListPage() {
         </select>
       </div>
       <div>
-        <label>Search by Name:</label>
+        <label>Search:</label>
         <input
           type="text"
           placeholder="Search..."
@@ -84,20 +87,20 @@ function ClothingListPage() {
       </div>
       {/* Display clothing items */}
       {Object.entries(sortedClothing).map(([type, items]) => (
-        <div key={type}>
-          <h2>{type.toUpperCase()}</h2>
-          <div className="clothing-section">
-            {items.map((clothing) => (
-              <div key={clothing._id}>
-                <Link to={`/clothing/${clothing._id}`}>
-                  <img src={clothing.image} width={200} height={250} />
-                  <h3>{clothing.title}</h3>
-                </Link>
-              </div>
-            ))}
-          </div>
+  <div key={type}>
+    <h2>{type.toUpperCase()}</h2>
+    <div className="clothing-grid">
+      {items.map((clothing) => (
+        <div key={clothing._id} className="clothing-item">
+          <Link to={`/clothing/${clothing._id}`}>
+            <img src={clothing.image} alt={clothing.title} />
+            <h3 className="clothing-title">{clothing.title}</h3>
+          </Link>
         </div>
       ))}
+    </div>
+  </div>
+))}
     </div>
   );
 }
