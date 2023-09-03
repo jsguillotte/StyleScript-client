@@ -8,6 +8,7 @@ function ClothingListPage() {
   const [sortedClothing, setSortedClothing] = useState({});
   const [selectedWeatherFilter, setSelectedWeatherFilter] = useState("all"); // Default to "all" weather
   const [searchQuery, setSearchQuery] = useState(""); // State for search input
+  
 
   useEffect(() => {
     async function fetchClothing() {

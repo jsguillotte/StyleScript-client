@@ -5,6 +5,7 @@ import ClothingDetailsPage from './Pages/ClothingDetails'
 import AddClothing from './Pages/AddClothing'
 import EditClothing from './Pages/EditClothing/clothing'
 import LaundryList from './Pages/LaundryList'
+import PackingList from './Pages/PackingList'
 import LandingPage from './Pages/LandingPage'
 import SignupPage from './Pages/Signup'
 import LoginPage from './Pages/Login'
@@ -25,6 +26,7 @@ function App() {
         <Route path="/clothing/create" element={<IsPrivate><AddClothing /></IsPrivate>} />
         <Route path="/clothing/edit/:clothingId" element={<IsPrivate><EditClothing /></IsPrivate>} />
         <Route path="/laundry" element={<IsPrivate><LaundryList /></IsPrivate>} /> 
+        <Route path="/packing" element={<IsPrivate><PackingList /></IsPrivate>} /> 
         <Route path="/signup" element={<IsAnon><SignupPage /></IsAnon>} />
         <Route path="/login" element={<IsAnon><LoginPage /></IsAnon>} />
         

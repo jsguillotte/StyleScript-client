@@ -9,6 +9,7 @@ function ClothingDetailsPage() {
   const navigate = useNavigate();
   const { clothingId } = useParams();
   const [isInLaundry, setIsInLaundry] = useState(false);
+  const [isInPacking, setIsInPacking] = useState(false);
   const [noteContent, setNoteContent] = useState('');
 
   useEffect(() => {
@@ -63,6 +64,24 @@ function ClothingDetailsPage() {
       }
     }
     addToLaundryRequest();
+  };
+
+  const addToPacking = () => {
+    async function addToPackingRequest() {
+      try {
+        const storedToken = localStorage.getItem('authToken');
+        await axios.post(`${API_URL}/api/clothing/add-to-packing/${clothingId}`, null, {
+          headers: {
+            Authorization: `Bearer ${storedToken}`,
+          },
+        });
+        refreshClothing();
+        navigate('/clothing');
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    addToPackingRequest();
   };
 
   const deleteClothing = () => {
@@ -203,6 +222,9 @@ function ClothingDetailsPage() {
 
           <button onClick={addToLaundry} disabled={isInLaundry}>
             {isInLaundry ? 'Added to Laundry' : 'Add to Laundry'}
+          </button>
+          <button onClick={addToPacking} disabled={isInPacking}>
+            {isInPacking ? 'Added to Packing' : 'Add to Packing'}
           </button>
 
           <p>{clothing.type}</p>
