@@ -179,7 +179,7 @@ function ClothingDetailsPage() {
   };
 
   return (
-    <div>
+    <div className='clothing-details'>
       {clothing && (
         <div>
           <img src={clothing.image} width={200} height={250} />

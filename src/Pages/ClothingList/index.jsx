@@ -65,7 +65,7 @@ function ClothingListPage() {
 
   return (
     <div>
-      <div>
+      <div className="clothing-filters">
         <label>Select Weather:</label>
         <select
           onChange={(e) => handleWeatherFilterChange(e.target.value)}
@@ -87,7 +87,7 @@ function ClothingListPage() {
       </div>
       {/* Display clothing items */}
       {Object.entries(sortedClothing).map(([type, items]) => (
-  <div key={type}>
+  <div key={type} className="clothing-list">
     <h2>{type.toUpperCase()}</h2>
     <div className="clothing-grid">
       {items.map((clothing) => (

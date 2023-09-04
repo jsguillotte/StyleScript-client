@@ -56,13 +56,15 @@ function LaundryList() {
   return (
     <div>
       <h2>Laundry List</h2>
-      <ul>
-        {laundry && laundry.map((item) => 
-        <li key={item._id}>
-          {item.title}
-          <button onClick={() => removeLaundryItem(item._id)}>Remove from Laundry</button>
+      <ol>
+        {laundry && laundry.map((clothing) => 
+        <li key={clothing._id}>
+          <p>{clothing.title}</p>
+          <p>{clothing.careInstructions}</p>
+          
+          <button onClick={() => removeLaundryItem(item._id)}>Remove</button>
           </li>)}
-      </ul>
+      </ol>
     </div>
   );
 }

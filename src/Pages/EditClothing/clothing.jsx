@@ -93,7 +93,7 @@ function EditClothing() {
     }
 
     return (
-           <div>
+           <div className='clothing-create'>
             <form onSubmit={handleSubmit}>
             <div>
                 <label>

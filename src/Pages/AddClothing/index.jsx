@@ -89,7 +89,7 @@ function AddClothing() {
         .catch((error) => console.log(error));
     }
   return (
-    <div>
+    <div className="clothing-create">
       <form onSubmit={handleSubmit}>
        <div>
         <label>
