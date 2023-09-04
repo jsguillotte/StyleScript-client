@@ -167,18 +167,18 @@ const StyledAppointmentsAppointmentContent = styled(
   },
 }));
 
-const WeatherIcon = ({ id }) => {
-  switch (id) {
-    case 0:
-      return <StyledOpacity className={classes.rain} fontSize="large" />;
-    case 1:
-      return <StyledWbSunny className={classes.sun} fontSize="large" />;
-    case 2:
-      return <StyledFilterDrama className={classes.cloud} fontSize="large" />;
-    default:
-      return null;
-  }
-};
+// const WeatherIcon = ({ id }) => {
+//   switch (id) {
+//     case 0:
+//       return <StyledOpacity className={classes.rain} fontSize="large" />;
+//     case 1:
+//       return <StyledWbSunny className={classes.sun} fontSize="large" />;
+//     case 2:
+//       return <StyledFilterDrama className={classes.cloud} fontSize="large" />;
+//     default:
+//       return null;
+//   }
+// };
 
 const CellBase = React.memo(({ startDate, formatDate, otherMonth }) => {
   const iconId = Math.abs(Math.floor(Math.sin(startDate.getDate()) * 10) % 3);
@@ -198,7 +198,7 @@ const CellBase = React.memo(({ startDate, formatDate, otherMonth }) => {
       })}
     >
       <StyledDivContent className={classes.content}>
-        <WeatherIcon classes={classes} id={iconId} />
+        {/* <WeatherIcon classes={classes} id={iconId} /> */}
       </StyledDivContent>
       <StyledDivText className={classes.text}>
         {formatDate(startDate, formatOptions)}

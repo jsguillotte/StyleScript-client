@@ -57,10 +57,11 @@ function LaundryList() {
         {laundry &&
           laundry.map((clothing) => (
             <li key={clothing._id}>
+               <img src={clothing.image} width={200} height={250} />
               <p>{clothing.title}</p>
               <p>{clothing.careInstructions}</p>
 
-              <button onClick={() => removeLaundryItem(item._id)}>
+              <button onClick={() => removeLaundryItem(clothing._id)}>
                 Remove
               </button>
             </li>

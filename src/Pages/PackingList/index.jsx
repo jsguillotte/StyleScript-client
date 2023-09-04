@@ -59,6 +59,7 @@
         <ol>
           {packing && packing.map((item) => 
           <li key={item._id}>
+             <img src={item.image} width={200} height={250} />
             {item.title}
             <button onClick={() => removePackingItem(item._id)}>Delete</button>
             </li>)}
