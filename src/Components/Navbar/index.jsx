@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {useContext} from 'react'; 
 import { AuthContext } from '../../Context/auth.context';
+import {useState} from "react"
 
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
@@ -167,7 +168,7 @@ function Navbar() {
           <IconButton size="large" aria-label="show 4 new mails" color="inherit">
            
           <Link to='/laundry'>
-            <Badge badgeContent={4} color="error">
+            <Badge badgeContent={user?.laundry?.length || 0} color="error">
             
               <DryCleaningIcon />
              
@@ -242,7 +243,7 @@ function Navbar() {
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
               <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                 <Link to='/laundry' className='laundry-link'>
-                <Badge badgeContent={4} color="error">
+                <Badge badgeContent={user?.laundry?.length || 0} color="error">
                   <DryCleaningIcon />
                 </Badge>
                 </Link>

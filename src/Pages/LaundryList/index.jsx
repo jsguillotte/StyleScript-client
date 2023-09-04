@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 const API_URL = "http://localhost:5005";
 
 function LaundryList() {
@@ -35,14 +36,11 @@ function LaundryList() {
   const removeLaundryItem = async (itemId) => {
     try {
       const storedToken = localStorage.getItem("authToken");
-      await axios.delete(
-        `${API_URL}/api/remove-from-laundry/${itemId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${storedToken}`,
-          },
-        }
-      );
+      await axios.delete(`${API_URL}/api/remove-from-laundry/${itemId}`, {
+        headers: {
+          Authorization: `Bearer ${storedToken}`,
+        },
+      });
 
       // After successfully removing the item, update the laundry list
       const updatedLaundry = laundry.filter((item) => item._id !== itemId);
@@ -52,18 +50,21 @@ function LaundryList() {
     }
   };
 
-
   return (
     <div>
       <h2>Laundry List</h2>
       <ol>
-        {laundry && laundry.map((clothing) => 
-        <li key={clothing._id}>
-          <p>{clothing.title}</p>
-          <p>{clothing.careInstructions}</p>
-          
-          <button onClick={() => removeLaundryItem(item._id)}>Remove</button>
-          </li>)}
+        {laundry &&
+          laundry.map((clothing) => (
+            <li key={clothing._id}>
+              <p>{clothing.title}</p>
+              <p>{clothing.careInstructions}</p>
+
+              <button onClick={() => removeLaundryItem(item._id)}>
+                Remove
+              </button>
+            </li>
+          ))}
       </ol>
     </div>
   );

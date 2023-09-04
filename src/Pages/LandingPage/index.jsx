@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from "react";
+import MonthScheduler from "../../Components/Scheduler";
 
 function LandingPage() {
+  
   return (
-    <div>this is the landing page.... under construction</div>
-  )
+    <div>
+      <MonthScheduler />
+    </div>
+  );
 }
 
-export default LandingPage
+export default LandingPage;
