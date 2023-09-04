@@ -56,13 +56,13 @@
     return (
       <div>
         <h2>Packing List</h2>
-        <ul>
+        <ol>
           {packing && packing.map((item) => 
           <li key={item._id}>
             {item.title}
             <button onClick={() => removePackingItem(item._id)}>Delete</button>
             </li>)}
-        </ul>
+        </ol>
         
       </div>
     );
