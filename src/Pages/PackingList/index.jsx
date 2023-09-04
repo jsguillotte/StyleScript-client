@@ -3,6 +3,7 @@
   }
   import { useState, useEffect } from "react";
   import axios from "axios";
+  import { Link } from "react-router-dom";
   
   const API_URL = "http://localhost:5005";
   
@@ -57,12 +58,16 @@
       <div>
         <h2>Packing List</h2>
         <ol>
-          {packing && packing.map((item) => 
-          <li key={item._id}>
-             <img src={item.image} width={200} height={250} />
-            {item.title}
-            <button onClick={() => removePackingItem(item._id)}>Delete</button>
-            </li>)}
+          {packing && packing.map((clothing) => (
+          <li key={clothing._id}>
+          <Link to={`/clothing/${clothing._id}`}>
+           <img src={clothing.image} width={200} height={250} />
+           <p>{clothing.title}</p>
+           
+          </Link>
+
+             <button onClick={() => removePackingItem(clothing._id)}>Delete</button>
+            </li>))}
         </ol>
         
       </div>

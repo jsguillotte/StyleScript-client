@@ -118,7 +118,7 @@ function AddClothing() {
       {imageOption === "upload" ? (
         <div>
           <label>
-            Upload Image:
+            
             <input
               type="file"
               name="image"
@@ -129,7 +129,7 @@ function AddClothing() {
       ) : (
         <div>
           <label>
-            Image URL:
+            URL:
             <input
               type="text"
               name="imageUrl"

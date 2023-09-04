@@ -3,6 +3,7 @@
 }
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 
 const API_URL = "http://localhost:5005";
@@ -51,15 +52,17 @@ function LaundryList() {
   };
 
   return (
-    <div>
+    <div className="clothing-list">
       <h2>Laundry List</h2>
-      <ol>
+      <ol className="clothing-grid">
         {laundry &&
           laundry.map((clothing) => (
-            <li key={clothing._id}>
-               <img src={clothing.image} width={200} height={250} />
-              <p>{clothing.title}</p>
-              <p>{clothing.careInstructions}</p>
+            <li key={clothing._id} className="clothing-item">
+              <Link to={`/clothing/${clothing._id}`}>
+               <img src={clothing.image} />
+               <p>{clothing.title}</p>
+               <p>{clothing.careInstructions}</p>
+              </Link>
 
               <button onClick={() => removeLaundryItem(clothing._id)}>
                 Remove

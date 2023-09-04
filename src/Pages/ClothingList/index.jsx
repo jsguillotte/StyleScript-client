@@ -65,7 +65,8 @@ function ClothingListPage() {
 
   return (
     <div>
-      <div className="clothing-filters">
+      <div className="search-bars">
+      <div className="clothing-filters search-bar weather-search">
         <label>Select Weather:</label>
         <select
           onChange={(e) => handleWeatherFilterChange(e.target.value)}
@@ -76,7 +77,7 @@ function ClothingListPage() {
           <option value="cold">Cold</option>
         </select>
       </div>
-      <div>
+      <div class='clothing-filters search-bar clothing-search'>
         <label>Search:</label>
         <input
           type="text"
@@ -84,6 +85,7 @@ function ClothingListPage() {
           value={searchQuery}
           onChange={handleSearchInputChange}
         />
+      </div>
       </div>
       {/* Display clothing items */}
       {Object.entries(sortedClothing).map(([type, items]) => (
@@ -94,7 +96,9 @@ function ClothingListPage() {
         <div key={clothing._id} className="clothing-item">
           <Link to={`/clothing/${clothing._id}`}>
             <img src={clothing.image} alt={clothing.title} />
+            <div className="card-content">
             <h3 className="clothing-title">{clothing.title}</h3>
+            </div>
           </Link>
         </div>
       ))}
