@@ -260,10 +260,12 @@ function ClothingDetailsPage() {
             <button onClick={createNote}>Add Note</button>
           </div>
 
+          <button onClick={addToCalendar}>Add to Calendar</button>
+
           <button onClick={addToLaundry} disabled={isInLaundry}>
             {isInLaundry ? "Added to Laundry" : "Add to Laundry"}
           </button>
-          <button onClick={addToCalendar}>Add to Today's Calendar</button>
+         
           <button onClick={addToPacking} disabled={isInPacking}>
             {isInPacking ? "Added to Packing" : "Add to Packing"}
           </button>
@@ -276,10 +278,10 @@ function ClothingDetailsPage() {
           <p>{clothing.careInstructions}</p>
           <p>{clothing.season}</p>
 
-          <Link to={`/clothing/edit/${clothingId}`}>Edit Clothing</Link>
+          <Link to={`/clothing/edit/${clothingId}`}><button>Edit Clothing</button></Link>
         </div>
       )}
-      <Link to="/clothing">Back to Closet</Link>
+      
       <button onClick={deleteClothing}>Delete Clothing</button>
     </div>
   );

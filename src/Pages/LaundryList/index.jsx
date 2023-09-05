@@ -50,6 +50,48 @@ function LaundryList() {
       console.error("Error removing from laundry:", error);
     }
   };
+ // Function to remove all items from the laundry list
+  const removeAllLaundryItems = async () => {
+    try {
+      console.log("DELETE request initiated")
+      const storedToken = localStorage.getItem("authToken");
+      console.log("storedToken", storedToken)
+      
+      await axios.put(`${API_URL}/api/remove-from-laundry/all`, {
+        headers: {
+          Authorization: `Bearer ${storedToken}`,
+        },
+      });
+
+      // After successfully removing all items, update the laundry list to an empty array
+      setLaundry([]);
+      console.log('All laundry items deleted successfully.');
+    } catch (error) {
+      console.error("Error removing all laundry items:", error);
+    }
+  };
+  
+ 
+      
+    
+
+
+ {/* const removeAllLaundryItems = async () => {
+    try {
+      const storedToken = localStorage.getItem("authToken");
+      await axios.delete(`${API_URL}/api/remove-from-laundry/all`, {
+        headers: {
+          Authorization: `Bearer ${storedToken}`,
+        },
+      });
+  
+      // After successfully removing all items, update the laundry list to an empty array
+      setLaundry([]);
+      console.log('All laundry items deleted successfully.');
+    } catch (error) {
+      console.error("Error removing all laundry items:", error);
+    }
+  };*/}
 
   return (
     <div className="clothing-list">
@@ -67,9 +109,13 @@ function LaundryList() {
               <button onClick={() => removeLaundryItem(clothing._id)}>
                 Remove
               </button>
+             
             </li>
           ))}
       </ol>
+      <button onClick={() => removeAllLaundryItems()}>
+        Remove All
+       </button>
     </div>
   );
 }
