@@ -109,13 +109,13 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
   },
   [`&.${classes.sunBack}`]: {
-    backgroundColor: "#FFFDE7",
+    backgroundColor: "#ECEFF1",
   },
   [`&.${classes.cloudBack}`]: {
     backgroundColor: "#ECEFF1",
   },
   [`&.${classes.rainBack}`]: {
-    backgroundColor: "#E1F5FE",
+    backgroundColor: "#ECEFF1",
   },
   [`&.${classes.opacity}`]: {
     opacity: "0.5",
@@ -226,9 +226,9 @@ const AppointmentContent = ({ ...restProps }) => (
 const FlexibleSpace = ({ ...restProps }) => (
   <StyledToolbarFlexibleSpace {...restProps} className={classes.flexibleSpace}>
     <div className={classes.flexContainer}>
-      <ColorLens fontSize="large" htmlColor="#FF7043" />
+   { /*  <ColorLens fontSize="large" htmlColor="#FF7043" />*/}
       <Typography variant="h5" style={{ marginLeft: "10px" }}>
-        StyleScript
+       
       </Typography>
     </div>
   </StyledToolbarFlexibleSpace>

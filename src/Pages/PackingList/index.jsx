@@ -55,13 +55,13 @@
   
   
     return (
-      <div>
+      <div className="clothing-list">
         <h2>Packing List</h2>
-        <ol>
+        <ol className="clothing-grid">
           {packing && packing.map((clothing) => (
-          <li key={clothing._id}>
-          <Link to={`/clothing/${clothing._id}`}>
-           <img src={clothing.image} width={200} height={250} />
+          <li key={clothing._id} className="clothing-item">
+          <Link to={`/clothing/${clothing._id}`} >
+           <img src={clothing.image} />
            <p>{clothing.title}</p>
            
           </Link>

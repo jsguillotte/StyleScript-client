@@ -30,7 +30,7 @@ function CustomNavbar() {
     <nav className="navbar-container">
       <div>
         <Link to="/" className='link'>
-          Home
+          Calendar
         </Link>
         <Link to="/clothing" className='link'>
           My Closet
