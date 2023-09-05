@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "../../index.css";
+
 
 
 const API_URL = "http://localhost:5005";
@@ -10,7 +12,7 @@ function ClothingListPage() {
   const [sortedClothing, setSortedClothing] = useState({});
   const [selectedWeatherFilter, setSelectedWeatherFilter] = useState("all"); // Default to "all" weather
   const [searchQuery, setSearchQuery] = useState(""); // State for search input
-  
+  const { clothingId } = useParams();
 
   useEffect(() => {
     async function fetchClothing() {
@@ -66,26 +68,29 @@ function ClothingListPage() {
   return (
     <div>
       <div className="search-bars">
-      <div className="clothing-filters search-bar weather-search">
-        <label>Select Weather:</label>
-        <select
-          onChange={(e) => handleWeatherFilterChange(e.target.value)}
-          value={selectedWeatherFilter}
-        >
-          <option value="all">All</option>
-          <option value="warm">Warm</option>
-          <option value="cold">Cold</option>
-        </select>
-      </div>
-      <div class='clothing-filters search-bar clothing-search'>
-        <label>Search:</label>
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchQuery}
-          onChange={handleSearchInputChange}
-        />
-      </div>
+        <div className="clothing-filters add-button">
+        <Link to='/clothing/create'><button>Add Clothing</button></Link>
+        </div>
+        <div className="clothing-filters search-bar weather-search">
+          <label>Select Weather:</label>
+          <select
+            onChange={(e) => handleWeatherFilterChange(e.target.value)}
+            value={selectedWeatherFilter}
+          >
+            <option value="all">All</option>
+            <option value="warm">Warm</option>
+            <option value="cold">Cold</option>
+          </select>
+        </div>
+        <div class='clothing-filters search-bar clothing-search'>
+          <label>Search:</label>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={handleSearchInputChange}
+          />
+        </div>
       </div>
       {/* Display clothing items */}
       {Object.entries(sortedClothing).map(([type, items]) => (

@@ -157,6 +157,10 @@ button:focus-visible {
   margin-left: 15px;
   
 }
+.add-button {
+  margin-right: 10px;
+  margin-top: 5px
+}
 
 .navbar-container {
   display: flex;
