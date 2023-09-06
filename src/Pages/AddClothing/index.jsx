@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const API_URL = "http://localhost:5005";
 
@@ -16,6 +17,7 @@ function AddClothing() {
   const [season, setSeason] = useState("");
   const [type, setType] = useState("");
   const [color, setColor] = useState("");
+  const navigate = useNavigate();
 
   // Handle Image Option Change
   const handleImageOptionChange = (e) => {
@@ -86,6 +88,7 @@ function AddClothing() {
           setCareInstructions("");
           setSeason("");
         })
+        .then(() => navigate("/clothing"))
         .catch((error) => console.log(error));
     }
   return (

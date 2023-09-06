@@ -4,7 +4,7 @@
   import { useState, useEffect } from "react";
   import axios from "axios";
   import { Link } from "react-router-dom";
-  import DeleteIcon from '@mui/icons-material/Delete';
+  import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
   
   const API_URL = "http://localhost:5005";
   
@@ -95,7 +95,7 @@
            
           </Link>
 
-             <button onClick={() => removePackingItem(clothing._id)}><DeleteIcon/></button>
+             <button onClick={() => removePackingItem(clothing._id)}><DeleteOutlineIcon/></button>
             </li>))}
         </ol>
         <button onClick={handleDeleteAll}>Clear</button>

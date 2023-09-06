@@ -61,7 +61,7 @@ function Navbar() {
 
    const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  
+
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   
@@ -82,7 +82,6 @@ function Navbar() {
       setMobileMoreAnchorEl(event.currentTarget);
     };
    
-    
     
 
   const Search = styled('div')(({ theme }) => ({
@@ -182,6 +181,9 @@ function Navbar() {
 
           <p>Laundry</p>
         </MenuItem>
+        <Link to="/calendar" className='link'>
+          Calendar
+        </Link>
         <MenuItem>
           <IconButton
             size="large"
@@ -194,6 +196,9 @@ function Navbar() {
             </Badge>
           </IconButton>
           <p>Luggage</p>
+        </MenuItem>
+        <MenuItem>
+        
         </MenuItem>
         <MenuItem onClick={handleProfileMenuOpen}>
           <IconButton

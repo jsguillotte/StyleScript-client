@@ -274,13 +274,13 @@ function ClothingDetailsPage() {
          {/*  {isInPacking ? "Added to Packing" : "Add to Packing"} */}
           </button>
 
-          <p>{clothing.type}</p>
-          <p>{clothing.description}</p>
+          <p>Type: {clothing.type}</p>
+          <p>Description: {clothing.description}</p>
 
-          <p>{clothing.brand}</p>
-          <p>{clothing.size}</p>
-          <p>{clothing.careInstructions}</p>
-          <p>{clothing.season}</p>
+          <p>Brand: {clothing.brand}</p>
+          <p>Size: {clothing.size}</p>
+          <p>Care Label: {clothing.careInstructions}</p>
+          <p>Weather: {clothing.season}</p>
 
           <Link to={`/clothing/edit/${clothingId}`}><button>Edit Clothing</button></Link>
         </div>

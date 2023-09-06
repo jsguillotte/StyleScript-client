@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 
 
@@ -119,7 +119,7 @@ function LaundryList() {
               </Link>
 
               <button onClick={() => removeLaundryItem(clothing._id)}>
-                <DeleteIcon/>
+                <DeleteOutlineIcon/>
               </button>
              
             </li>
