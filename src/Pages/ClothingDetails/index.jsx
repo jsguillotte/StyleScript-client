@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import DryCleaningIcon from '@mui/icons-material/DryCleaning';
+import LuggageIcon from '@mui/icons-material/Luggage';
 
 const API_URL = "http://localhost:5005";
 
@@ -88,7 +90,7 @@ function ClothingDetailsPage() {
           },
         }
       );
-      navigate("/");
+      navigate("/calendar");
     } catch (error) {
       console.log(error);
     }
@@ -262,12 +264,14 @@ function ClothingDetailsPage() {
 
           <button onClick={addToCalendar}>Add to Calendar</button>
 
-          <button onClick={addToLaundry} disabled={isInLaundry}>
-            {isInLaundry ? "Added to Laundry" : "Add to Laundry"}
+         <button onClick={addToLaundry} disabled={isInPacking}>
+            <DryCleaningIcon/>
+         {/*  {isInPacking ? "Added to Packing" : "Add to Packing"} */}
           </button>
          
           <button onClick={addToPacking} disabled={isInPacking}>
-            {isInPacking ? "Added to Packing" : "Add to Packing"}
+            <LuggageIcon/>
+         {/*  {isInPacking ? "Added to Packing" : "Add to Packing"} */}
           </button>
 
           <p>{clothing.type}</p>

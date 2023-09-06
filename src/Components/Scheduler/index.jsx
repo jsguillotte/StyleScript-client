@@ -263,6 +263,23 @@ function MonthScheduler() {
     }
   };
 
+  const deleteCalendarEntry = async (schedulerId) => {
+    const API_URL = "http://localhost:5005";
+    const storedToken = localStorage.getItem("authToken");
+  
+    try {
+      if (storedToken) {
+        await axios.delete(`${API_URL}/api/calendar-clothing/${schedulerId}`, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        });
+        
+      }
+    } catch (error) {
+      console.error("Error deleting calendar entry:", error);
+      // Handle error as needed
+    }
+  };
+
   function commitChanges({ added, changed, deleted }) {
     let newData;
     if (added) {
@@ -278,7 +295,9 @@ function MonthScheduler() {
       );
     }
     if (deleted !== undefined) {
-      newData = data.filter((appointment) => appointment.id !== deleted);
+     newData = data.filter((appointment) => appointment.id !== deleted);
+     let deletedOne = data.find((appointment) => appointment.id === deleted);
+     deleteCalendarEntry(deletedOne._id)
     }
     setData(newData);
     sendCalendar(newData);

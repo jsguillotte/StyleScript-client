@@ -10,6 +10,7 @@ import LandingPage from './Pages/LandingPage'
 import SignupPage from './Pages/Signup'
 import LoginPage from './Pages/Login'
 import Navbar from "./Components/Navbar"
+import HomePage from './Pages/HomePage'
 import IsPrivate from "./Components/isPrivate";
 import IsAnon from "./Components/isAnon";
 
@@ -21,7 +22,8 @@ function App() {
     <div>
     <Navbar/>
     <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<HomePage/>}></Route>
+        <Route path="/calendar" element={<IsPrivate><LandingPage /></IsPrivate>} />
         <Route path="/clothing" element={<IsPrivate><ClothingListPage /></IsPrivate>} />
         <Route path="/clothing/:clothingId" element={<IsPrivate><ClothingDetailsPage /></IsPrivate>} />
         <Route path="/clothing/create" element={<IsPrivate><AddClothing /></IsPrivate>} />

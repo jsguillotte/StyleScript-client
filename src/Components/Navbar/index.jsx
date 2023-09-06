@@ -29,7 +29,7 @@ function CustomNavbar() {
   return (
     <nav className="navbar-container">
       <div>
-        <Link to="/" className='link'>
+        <Link to="/calendar" className='link'>
           Calendar
         </Link>
         <Link to="/clothing" className='link'>
@@ -58,6 +58,7 @@ function CustomNavbar() {
 function Navbar() {
   const {isLoggedIn, user, logOutUser} = useContext(AuthContext);
 
+
    const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   
@@ -80,7 +81,8 @@ function Navbar() {
     const handleMobileMenuOpen = (event) => {
       setMobileMoreAnchorEl(event.currentTarget);
     };
-
+   
+    
     
 
   const Search = styled('div')(({ theme }) => ({
@@ -168,7 +170,7 @@ function Navbar() {
           <IconButton size="large" aria-label="show 4 new mails" color="inherit">
            
           <Link to='/laundry'>
-            <Badge badgeContent={user?.laundry?.length || 0} color="error">
+            <Badge badgeContent={user?.laundry?.length} color="error">
             
               <DryCleaningIcon />
              
@@ -187,7 +189,7 @@ function Navbar() {
             color="inherit"
           >
              
-            <Badge badgeContent={17} color="error">
+            <Badge badgeContent={user?.packing?.length} color="error">
               <LuggageIcon/>
             </Badge>
           </IconButton>
@@ -228,7 +230,7 @@ function Navbar() {
               component="div"
               sx={{ display: { xs: 'none', sm: 'block' } }}
             >
-              StyleScript
+           <Link to='/'> StyleScript</Link> 
             </Typography>
            
             <Box sx={{ flexGrow: 1 }} />
@@ -246,10 +248,11 @@ function Navbar() {
                 color="inherit"
               >
                 <Link to='/packing' className='packing-link'>
-                <Badge badgeContent={17} color="error">
+                <Badge badgeContent={user?.packing?.length} color="error">
                   <LuggageIcon />
                 </Badge>
                 </Link>
+                
               </IconButton>
              
               <CustomNavbar />

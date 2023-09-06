@@ -6,10 +6,12 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 
+
 const API_URL = "http://localhost:5005";
 
 function LaundryList() {
   const [laundry, setLaundry] = useState([]);
+ 
 
   useEffect(() => {
     async function fetchLaundry() {
@@ -51,23 +53,32 @@ function LaundryList() {
     }
   };
  // Function to remove all items from the laundry list
-  const removeAllLaundryItems = async () => {
+ 
+   // Function to remove all items from the laundry list
+   const handleDeleteAll = async () => {
     try {
-      console.log("DELETE request initiated")
       const storedToken = localStorage.getItem("authToken");
-      console.log("storedToken", storedToken)
-      
-      await axios.put(`${API_URL}/api/remove-from-laundry/all`, {
+  
+      // Step 1: Clear the laundry list in local storage
+      localStorage.removeItem("laundryList");
+  
+      // Step 2: Clear the laundry state in your component
+      setLaundry([]);
+  
+      // Step 3: Send a request to your backend to delete all items
+      const response = await axios.delete(`${API_URL}/api/remove-from-laundry/all`, {
         headers: {
           Authorization: `Bearer ${storedToken}`,
-        },
+        }
       });
-
-      // After successfully removing all items, update the laundry list to an empty array
-      setLaundry([]);
-      console.log('All laundry items deleted successfully.');
+  
+      if (response.status === 200) {
+        console.log('All laundry items deleted successfully from local storage and backend.');
+      } else {
+        console.error('Error deleting laundry items from backend.');
+      }
     } catch (error) {
-      console.error("Error removing all laundry items:", error);
+      console.error('Error deleting laundry:', error);
     }
   };
   
@@ -113,9 +124,7 @@ function LaundryList() {
             </li>
           ))}
       </ol>
-      <button onClick={() => removeAllLaundryItems()}>
-        Remove All
-       </button>
+      <button onClick={handleDeleteAll}>Delete All</button>
     </div>
   );
 }
