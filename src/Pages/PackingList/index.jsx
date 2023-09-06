@@ -87,7 +87,10 @@ function PackingList() {
 
   return (
     <div className="clothing-list added-list">
-      <h2>Packing List</h2>
+     <div className="centered">
+       <h2>Packing List</h2>
+       <button onClick={handleDeleteAll}>Clear</button>
+      </div>
       <ol className="clothing-grid">
         {packing &&
           packing.map((clothing) => (
@@ -103,7 +106,7 @@ function PackingList() {
             </li>
           ))}
       </ol>
-      <button onClick={handleDeleteAll}>Clear</button>
+      
     </div>
   );
 }

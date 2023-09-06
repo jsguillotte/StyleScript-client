@@ -32,10 +32,336 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
 
 .read-the-docs {
   color: #888;
+}
+
+.clothing-list {
+  margin: 2%;
+}
+.centered{
+  text-align: center;
+}
+
+
+.clothing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+  grid-auto-rows: 55vh;
+  padding-bottom: 0;
+  
+   /* Adjust the height as needed */
+  gap: 1rem; /* Adjust the gap between items as needed */
+}
+
+.clothing-item {
+  
+  border: 1px solid #ccc; /* Add a border around each item if desired */
+  border-radius: 5px;
+  padding: 5px; 
+  text-align: center;
+  overflow: scroll;
+  
+  
+}
+
+
+.clothing-item img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  margin: 0;
+
+}
+.search-bars {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: sticky;
+  top: 70px;
+
+}
+.search-bar {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  background-color: #fff; /* Set background color as needed */
+  padding: 10px;
+  border-radius: 5px;
+  
+ 
+}
+
+.weather-search {
+  background-color: #e0e0e0;
+  margin-right: 15px;
+   /* Background color for weather search */
+}
+
+.clothing-search {
+  background-color: #f0f0f0; /* Background color for clothing search */
+}
+
+/* Style labels, select, and input as needed */
+.search-bar label {
+  margin-right: 10px; /* Add spacing between label and input/select */
+}
+
+.search-bar select,
+.search-bar input[type="text"] {
+  padding: 5px ; /* Adjust padding as needed */
+  border: 1px solid #ccc; /* Add border as needed */
+  border-radius: 4px; /* Add border radius as needed */
+}
+
+.search-bar select {
+  margin-right: 10px; /* Add spacing between select and input */
+}
+
+
+
+.search-bars {
+  margin-top: 70px;
+  margin-left: 15px;
+  
+}
+.add-button {
+  margin-right: 10px;
+  margin-top: 5px
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+   /* Vertically align items to the center */
+}
+
+.navbar-container > div {
+  display: flex; /* Make inner divs flex containers */
+  gap: 10px; /* Adjust the gap between buttons as needed */
+}
+
+.link {
+  color: white;
+  padding: 5px;
+}
+.mobile-link {
+  margin-left: 35px;
+}
+
+.laundry-link {
+  color: white;
+}
+
+.packing-link {
+  color: white;
+}
+
+.added-list {
+  margin-top: 80px;
+}
+
+.clothing-item-added {
+  
+  border: 1px solid #ccc; /* Add a border around each item if desired */
+  border-radius: 5px;
+  padding: 5px; 
+  text-align: center;
+  overflow: scroll;
+  
+  
+}
+
+
+.clothing-item-added img {
+  width: 100%;
+  height: 65%;
+  object-fit: cover;
+  margin: 0;
+
+}
+
+
+
+.front-calendar {
+  margin: 60px 20px 20px 15px;
+  
+}
+.button-note {
+  background-color: white;
+  border: none;
+  padding: 5px;
+  padding-bottom: 0;
+  margin-left: 5px
+  
+}
+ul {
+  list-style: none;
+}
+
+.clothing-details-container {
+  background-color: rgb(221, 219, 219);
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; 
+  min-height: 100vh; 
+  
+}
+
+.clothing-details {
+  margin-top: 60px;
+  max-width: 400px; /* Adjust the width as needed */
+  width: 100%; /* Make it as wide as its container */
+
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adjust the shadow as needed */
+  text-align: center;
+ 
+  
+}
+
+.clothing-details img {
+  width: 100%;
+  height: 40vh; /* Adjust the max height as needed */
+  object-fit: cover;
+  border-radius: 10px 10px 0 0; /* Rounded corners only at the top */
+}
+
+.clothing-details h3 {
+  margin-top: 10px;
+  
+}
+
+.clothing-details p {
+  margin-left: 15%;
+  
+ 
+  text-align: left;
+}
+
+.clothing-details button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clothing-details button:disabled {
+  background-color: #ccc; /* Adjust the disabled button color as needed */
+  cursor: not-allowed;
+}
+
+.clothing-details textarea {
+  width: 60%;
+  padding: 5px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.clothing-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.clothing-details li {
+  margin-top: 10px;
+}
+
+/* Additional styling for icons */
+
+/* Center the form vertically and horizontally */
+.clothing-create {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0; /* Set a background color */
+}
+
+/* Style the form container */
+.clothing-create form {
+  background-color: #fff; /* Form background color */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow */
+  max-width: 500px; /* Limit form width for responsiveness */
+  width: 100%; /* Full width on smaller screens */
+  margin-top: 100px;
+  padding-right: 40px;
+}
+
+/* Style labels and inputs */
+.clothing-create label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.clothing-create input[type="text"],
+.clothing-create input[type="file"],
+.clothing-create select,
+.clothing-create button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+  
+}
+
+.clothing-create input[type="file"] {
+  padding: 5px;
+}
+
+/* Style the submit button */
+.clothing-create button {
+  background-color: gray; /* Button background color */
+  color: #fff; /* Text color */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clothing-create button:hover {
+  background-color: #696a6b; /* Hover color */
+}
+
+/* Add responsive styles */
+@media (max-width: 600px) {
+  .clothing-create {
+    padding: 20px;
+  }
+  .clothing-create form {
+    max-width: none;
+  }
+}
+
+/* Center radio buttons and checkboxes */
+.clothing-create input[type="radio"],
+.clothing-create input[type="checkbox"] {
+  vertical-align: middle;
+  margin: 5px;
+}
+
+/* Style the radio buttons container */
+.radio-buttons {
+  display: flex; /* Display the radio buttons side by side */
+}
+
+/* Style individual radio button labels */
+.radio-buttons label {
+  display: inline-flex; /* Display labels and inputs in a row */
+  align-items: center; /* Vertically center the content */
+  margin-right: 20px; /* Add spacing between radio buttons */
+}
+
+/* Adjust the spacing between radio button labels and inputs if needed */
+.radio-buttons input[type="radio"] {
+  margin-right: 5px; /* Add spacing between label and radio button */
 }

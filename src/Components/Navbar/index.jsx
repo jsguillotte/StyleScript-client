@@ -100,7 +100,10 @@ function Navbar() {
         open={isMenuOpen}
         onClose={handleMenuClose}
       >
-        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+        <MenuItem onClick={handleMenuClose}> <Link to="/clothing" className='link'>
+          My Closet
+          
+        </Link></MenuItem>
         <MenuItem onClick={handleMenuClose}>My account</MenuItem>
       </Menu>
     );
@@ -128,7 +131,7 @@ function Navbar() {
           <IconButton size="large" aria-label="show 4 new mails" color="inherit">
            
           <Link to='/laundry'>
-            console.log(user.laundry.length)
+            
             < Badge badgeContent={user?.laundry?.length} color="error">
             
               <DryCleaningIcon />
@@ -141,9 +144,7 @@ function Navbar() {
 
           <p>Laundry</p>
         </MenuItem>
-        <Link to="/calendar" className='link'>
-          Calendar
-        </Link>
+
         <MenuItem>
           <IconButton
             size="large"
@@ -157,10 +158,22 @@ function Navbar() {
           </IconButton>
           <p>Luggage</p>
         </MenuItem>
-        <MenuItem>
         
-        </MenuItem>
+        <Link to="/calendar" className="mobile-link">
+          Calendar
+        </Link>
+
+         <Link to="/clothing" >
+         <p className="mobile-link">My Closet</p> 
+        </Link>
+        <Link to="/signup" className='l'>
+           Signup
+          </Link>
+          <Link to="/login" className='l'>
+            Login
+          </Link>
         <MenuItem onClick={handleProfileMenuOpen}>
+       
           <IconButton
             size="large"
             aria-label="account of current user"
@@ -174,12 +187,13 @@ function Navbar() {
           
         </MenuItem>
       </Menu>
-    );
+    ); 
   
     return (
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="fixed" sx={{ backgroundColor: 'gray'}}>
           <Toolbar>
+            {/*}
             <IconButton
               size="large"
               edge="start"
@@ -189,17 +203,18 @@ function Navbar() {
             >
               <MenuIcon />
             </IconButton>
+    */}
             <Typography
               variant="h6"
               noWrap
               component="div"
-              sx={{ display: { xs: 'none', sm: 'block' } }}
+              sx={{ display: { xs: 'flex', sm: 'block' } }}
             >
            <Link to='/'> StyleScript</Link> 
             </Typography>
            
             <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <Box sx={{ display: { xs: 'flex', md: 'flex' } }}>
               <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                 <Link to='/laundry' className='laundry-link'>
                 <Badge badgeContent={user?.laundry?.length || 0} color="error">
@@ -222,7 +237,7 @@ function Navbar() {
              
             <CustomNavbar /> 
             </Box>
-            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+         {/*   <Box sx={{ display: { xs: 'flex', md: 'flex' } }}>
               <IconButton
                 size="large"
                 aria-label="show more"
@@ -233,10 +248,10 @@ function Navbar() {
               >
                 <MoreIcon />
               </IconButton>
-            </Box>
+    </Box> */}
           </Toolbar>
         </AppBar>
-        {renderMobileMenu}
+      { /* {renderMobileMenu} */}
         {renderMenu}
         
       </Box>

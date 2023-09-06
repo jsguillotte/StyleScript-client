@@ -27,6 +27,7 @@ a:hover {
 
 body {
  margin: 0;
+ padding: 0;
  /* margin: 0;
   display: flex;
   place-items: center;
@@ -42,7 +43,8 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.3em 1em;
+  margin: 0.3em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -51,12 +53,12 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: grey;
 }
-button:focus,
+/*button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+}*/
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -70,152 +72,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-.clothing-list {
-  margin: 2%;
-}
-.clothing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
-  grid-auto-rows: 55vh;
-  padding-bottom: 0;
-  
-   /* Adjust the height as needed */
-  gap: 1rem; /* Adjust the gap between items as needed */
-}
 
-.clothing-item {
-  
-  border: 1px solid #ccc; /* Add a border around each item if desired */
-  border-radius: 5px;
-  padding: 5px; 
-  text-align: center;
-  overflow: scroll;
-  
-  
-}
-
-
-.clothing-item img {
-  width: 100%;
-  height: 75%;
-  object-fit: cover;
-  margin: 0;
-
-}
-.search-bars {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  position: sticky;
-  top: 70px;
-
-}
-.search-bar {
-  display: flex;
-  align-items: center; /* Center items vertically */
-  justify-content: center; /* Center items horizontally */
-  background-color: #fff; /* Set background color as needed */
-  padding: 10px;
-  border-radius: 5px;
-  
- 
-}
-
-.weather-search {
-  background-color: #e0e0e0;
-  margin-right: 15px;
-   /* Background color for weather search */
-}
-
-.clothing-search {
-  background-color: #f0f0f0; /* Background color for clothing search */
-}
-
-/* Style labels, select, and input as needed */
-.search-bar label {
-  margin-right: 10px; /* Add spacing between label and input/select */
-}
-
-.search-bar select,
-.search-bar input[type="text"] {
-  padding: 5px ; /* Adjust padding as needed */
-  border: 1px solid #ccc; /* Add border as needed */
-  border-radius: 4px; /* Add border radius as needed */
-}
-
-.search-bar select {
-  margin-right: 10px; /* Add spacing between select and input */
-}
-
-.clothing-details {
-  margin: 100px 40%;
-  
-}
-
-.search-bars {
-  margin-top: 70px;
-  margin-left: 15px;
-  
-}
-.add-button {
-  margin-right: 10px;
-  margin-top: 5px
-}
-
-.navbar-container {
-  display: flex;
-  align-items: center;
-   /* Vertically align items to the center */
-}
-
-.navbar-container > div {
-  display: flex; /* Make inner divs flex containers */
-  gap: 10px; /* Adjust the gap between buttons as needed */
-}
-
-.link {
-  color: white;
-  padding: 5px;
-}
-
-.laundry-link {
-  color: white;
-}
-
-.packing-link {
-  color: white;
-}
-
-.added-list {
-  margin-top: 80px;
-}
-
-.clothing-item-added {
-  
-  border: 1px solid #ccc; /* Add a border around each item if desired */
-  border-radius: 5px;
-  padding: 5px; 
-  text-align: center;
-  overflow: scroll;
-  
-  
-}
-
-
-.clothing-item-added img {
-  width: 100%;
-  height: 65%;
-  object-fit: cover;
-  margin: 0;
-
-}
-
-.clothing-create {
-  margin-top: 100px;
-  margin-left: 15px;
-}
-
-.front-calendar {
-  margin: 60px 20px 20px 15px;
-  
-}

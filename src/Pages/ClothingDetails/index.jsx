@@ -3,7 +3,9 @@ import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import DryCleaningIcon from "@mui/icons-material/DryCleaning";
 import LuggageIcon from "@mui/icons-material/Luggage";
-
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 // const API_URL = "https://style-script.onrender.com";
 const API_URL = "http://localhost:5005";
 
@@ -217,11 +219,51 @@ function ClothingDetailsPage() {
   };
 
   return (
+    <div className="clothing-details-container">
     <div className="clothing-details">
       {clothing && (
         <div>
           <img src={clothing.image} width={200} height={250} />
           <h3>{clothing.title}</h3>
+          <Link to={`/clothing/edit/${clothingId}`}>
+            <button>Edit</button>
+          </Link>
+          <button onClick={deleteClothing}>Delete</button>
+
+        
+      
+
+        
+         { clothing.type && (<p>Type: {clothing.type}</p>)}
+         { clothing.description &&   (<p>Description: {clothing.description}</p>)}
+
+         { clothing.brand &&  (<p>Brand: {clothing.brand}</p>)}
+         {clothing.size && (<p>Size: {clothing.size}</p> )}
+         { clothing.careInstructions && (<p>Care Label: {clothing.careInstructions}</p> )}
+         { clothing.season && (<p>Weather: {clothing.season}</p> )}
+
+         <button onClick={addToCalendar}><CalendarMonthIcon/></button>
+
+          <button onClick={addToLaundry} disabled={isInPacking}>
+            <DryCleaningIcon />
+            {/*  {isInPacking ? "Added to Packing" : "Add to Packing"} */}
+          </button>
+
+          <button onClick={addToPacking} disabled={isInPacking}>
+            <LuggageIcon />
+            {/*  {isInPacking ? "Added to Packing" : "Add to Packing"} */}
+          </button>
+          
+
+           {/* Add Note */}
+           <div>
+            <textarea
+              value={noteContent}
+              onChange={(e) => setNoteContent(e.target.value)}
+              placeholder="Enter your note"
+            />
+            <button onClick={createNote} className="button-note"><ModeEditOutlineOutlinedIcon/></button>
+          </div>
 
           {/* Display notes */}
           <ul>
@@ -235,17 +277,17 @@ function ClothingDetailsPage() {
                       placeholder={note.content}
                     />
                     <button onClick={() => saveEditedNote(note._id)}>
-                      Save Note
+                      Save
                     </button>
                   </>
                 ) : (
                   <>
                     {note.content}
-                    <button onClick={() => editNote(note._id, note.content)}>
-                      Edit Note
+                    <button onClick={() => editNote(note._id, note.content)} className="button-note"><ModeEditOutlineOutlinedIcon/>
+                      
                     </button>
-                    <button onClick={() => deleteNote(note._id)}>
-                      Delete Note
+                    <button onClick={() => deleteNote(note._id)} className="button-note"> <DeleteOutlineIcon/>
+                     
                     </button>
                   </>
                 )}
@@ -253,43 +295,13 @@ function ClothingDetailsPage() {
             ))}
           </ul>
 
-          {/* Add Note */}
-          <div>
-            <textarea
-              value={noteContent}
-              onChange={(e) => setNoteContent(e.target.value)}
-              placeholder="Enter your note"
-            />
-            <button onClick={createNote}>Add Note</button>
-          </div>
-
-          <button onClick={addToCalendar}>Add to Calendar</button>
-
-          <button onClick={addToLaundry} disabled={isInPacking}>
-            <DryCleaningIcon />
-            {/*  {isInPacking ? "Added to Packing" : "Add to Packing"} */}
-          </button>
-
-          <button onClick={addToPacking} disabled={isInPacking}>
-            <LuggageIcon />
-            {/*  {isInPacking ? "Added to Packing" : "Add to Packing"} */}
-          </button>
-
-          <p>Type: {clothing.type}</p>
-          <p>Description: {clothing.description}</p>
-
-          <p>Brand: {clothing.brand}</p>
-          <p>Size: {clothing.size}</p>
-          <p>Care Label: {clothing.careInstructions}</p>
-          <p>Weather: {clothing.season}</p>
-
-          <Link to={`/clothing/edit/${clothingId}`}>
-            <button>Edit Clothing</button>
-          </Link>
+         
         </div>
+        
       )}
 
-      <button onClick={deleteClothing}>Delete Clothing</button>
+      
+    </div>
     </div>
   );
 }

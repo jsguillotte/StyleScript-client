@@ -106,7 +106,10 @@ function LaundryList() {
 
   return (
     <div className="clothing-list added-list">
-      <h2>Laundry List</h2>
+      <div className="centered">
+        <h2>Laundry List</h2>
+        <button onClick={handleDeleteAll}>Clear</button>
+      </div>
       <ol className="clothing-grid">
         {laundry &&
           laundry.map((clothing) => (
@@ -123,7 +126,7 @@ function LaundryList() {
             </li>
           ))}
       </ol>
-      <button onClick={handleDeleteAll}>Clear</button>
+     
     </div>
   );
 }

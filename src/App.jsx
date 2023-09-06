@@ -13,6 +13,7 @@ import Navbar from "./Components/Navbar"
 import HomePage from './Pages/HomePage'
 import IsPrivate from "./Components/isPrivate";
 import IsAnon from "./Components/isAnon";
+import './App.css';
 
 
 
