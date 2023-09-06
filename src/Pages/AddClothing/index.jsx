@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://style-script.onrender.com";
 
 function AddClothing() {
   // State Declaration
@@ -24,7 +24,6 @@ function AddClothing() {
     setImageOption(e.target.value);
   };
 
-
   //handle fileUpload
   const handleFileUpload = (e) => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
@@ -34,7 +33,7 @@ function AddClothing() {
     axios
       .post(`${API_URL}/api/upload`, uploadData, {
         headers: { Authorization: `Bearer ${storedToken}` },
-      }) 
+      })
       .then((response) => {
         console.log("response is: ", response);
         setImageFile(response.data.image);
@@ -44,105 +43,96 @@ function AddClothing() {
       });
   };
 
-  
-  
-
   // Handle Submit Function
   function handleSubmit(e) {
-      e.preventDefault();
- 
-      // If the user selected "upload," use the uploaded file
+    e.preventDefault();
+
+    // If the user selected "upload," use the uploaded file
     // If the user selected "URL," use the entered URL
     const imageToUse = imageOption === "upload" ? imageFile : imageUrl;
 
-
-      const requestBody = {
-        title,
-        description,
-        image: imageToUse,
-        type,
-        color,
-        brand,
-        size,
-        careInstructions,
-        season,
-      };
-      const storedToken = localStorage.getItem("authToken");
-      axios
-        .post(`${API_URL}/api/clothing/create`, requestBody, {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        })
-        .then(() => {
-          setTitle("");
-          setDescription("");
-          //setImage("");
-          if (imageOption === "upload") {
-            setImageFile(null);
-          } else {
-            setImageUrl("");
-          }
-          setType("");
-          setColor("");
-          setBrand("");
-          setSize("");
-          setCareInstructions("");
-          setSeason("");
-        })
-        .then(() => navigate("/clothing"))
-        .catch((error) => console.log(error));
-    }
+    const requestBody = {
+      title,
+      description,
+      image: imageToUse,
+      type,
+      color,
+      brand,
+      size,
+      careInstructions,
+      season,
+    };
+    const storedToken = localStorage.getItem("authToken");
+    axios
+      .post(`${API_URL}/api/clothing/create`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then(() => {
+        setTitle("");
+        setDescription("");
+        //setImage("");
+        if (imageOption === "upload") {
+          setImageFile(null);
+        } else {
+          setImageUrl("");
+        }
+        setType("");
+        setColor("");
+        setBrand("");
+        setSize("");
+        setCareInstructions("");
+        setSeason("");
+      })
+      .then(() => navigate("/clothing"))
+      .catch((error) => console.log(error));
+  }
   return (
     <div className="clothing-create">
       <form onSubmit={handleSubmit}>
-       <div>
-        <label>
-          Image:
-          <input
-            type="radio"
-            name="imageOption"
-            value="upload"
-            checked={imageOption === "upload"}
-            onChange={handleImageOptionChange}
-          />
-          Upload
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="imageOption"
-            value="url"
-            checked={imageOption === "url"}
-            onChange={handleImageOptionChange}
-          />
-          URL
-        </label>
-      </div>
+        <div>
+          <label>
+            Image:
+            <input
+              type="radio"
+              name="imageOption"
+              value="upload"
+              checked={imageOption === "upload"}
+              onChange={handleImageOptionChange}
+            />
+            Upload
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="imageOption"
+              value="url"
+              checked={imageOption === "url"}
+              onChange={handleImageOptionChange}
+            />
+            URL
+          </label>
+        </div>
 
-      {imageOption === "upload" ? (
-        <div>
-          <label>
-            
-            <input
-              type="file"
-              name="image"
-              onChange={handleFileUpload}
-            />
-          </label>
-        </div>
-      ) : (
-        <div>
-          <label>
-            URL:
-            <input
-              type="text"
-              name="imageUrl"
-              value={imageUrl}
-              onChange={(e) => setImageUrl(e.target.value)}
-            />
-          </label>
-        </div>
-      )}
-       <label>
+        {imageOption === "upload" ? (
+          <div>
+            <label>
+              <input type="file" name="image" onChange={handleFileUpload} />
+            </label>
+          </div>
+        ) : (
+          <div>
+            <label>
+              URL:
+              <input
+                type="text"
+                name="imageUrl"
+                value={imageUrl}
+                onChange={(e) => setImageUrl(e.target.value)}
+              />
+            </label>
+          </div>
+        )}
+        <label>
           Title:
           <input
             type="text"
@@ -201,7 +191,6 @@ function AddClothing() {
             <option value="both">Both</option>
             <option value="warm">Warm</option>
             <option value="cold">Cold</option>
-          
           </select>
         </label>
         {/*Create  a label for care instructions*/}
@@ -232,4 +221,4 @@ function AddClothing() {
   );
 }
 
-export default AddClothing
+export default AddClothing;

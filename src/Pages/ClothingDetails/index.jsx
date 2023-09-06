@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import DryCleaningIcon from '@mui/icons-material/DryCleaning';
-import LuggageIcon from '@mui/icons-material/Luggage';
+import DryCleaningIcon from "@mui/icons-material/DryCleaning";
+import LuggageIcon from "@mui/icons-material/Luggage";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://style-script.onrender.com";
 
 function ClothingDetailsPage() {
   const [clothing, setClothing] = useState(null);
@@ -264,14 +264,14 @@ function ClothingDetailsPage() {
 
           <button onClick={addToCalendar}>Add to Calendar</button>
 
-         <button onClick={addToLaundry} disabled={isInPacking}>
-            <DryCleaningIcon/>
-         {/*  {isInPacking ? "Added to Packing" : "Add to Packing"} */}
+          <button onClick={addToLaundry} disabled={isInPacking}>
+            <DryCleaningIcon />
+            {/*  {isInPacking ? "Added to Packing" : "Add to Packing"} */}
           </button>
-         
+
           <button onClick={addToPacking} disabled={isInPacking}>
-            <LuggageIcon/>
-         {/*  {isInPacking ? "Added to Packing" : "Add to Packing"} */}
+            <LuggageIcon />
+            {/*  {isInPacking ? "Added to Packing" : "Add to Packing"} */}
           </button>
 
           <p>Type: {clothing.type}</p>
@@ -282,10 +282,12 @@ function ClothingDetailsPage() {
           <p>Care Label: {clothing.careInstructions}</p>
           <p>Weather: {clothing.season}</p>
 
-          <Link to={`/clothing/edit/${clothingId}`}><button>Edit Clothing</button></Link>
+          <Link to={`/clothing/edit/${clothingId}`}>
+            <button>Edit Clothing</button>
+          </Link>
         </div>
       )}
-      
+
       <button onClick={deleteClothing}>Delete Clothing</button>
     </div>
   );

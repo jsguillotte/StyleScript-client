@@ -4,15 +4,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
-
-
-const API_URL = "http://localhost:5005";
+const API_URL = "https://style-script.onrender.com";
 
 function LaundryList() {
   const [laundry, setLaundry] = useState([]);
- 
 
   useEffect(() => {
     async function fetchLaundry() {
@@ -54,41 +51,41 @@ function LaundryList() {
     }
   };
 
- 
-   // Function to remove all items from the laundry list
-   const handleDeleteAll = async () => {
+  // Function to remove all items from the laundry list
+  const handleDeleteAll = async () => {
     try {
       const storedToken = localStorage.getItem("authToken");
-  
+
       // Step 1: Clear the laundry list in local storage
       localStorage.removeItem("laundryList");
-  
+
       // Step 2: Clear the laundry state in your component
       setLaundry([]);
-  
+
       // Step 3: Send a request to your backend to delete all items
-      const response = await axios.delete(`${API_URL}/api/remove-from-laundry/all`, {
-        headers: {
-          Authorization: `Bearer ${storedToken}`,
+      const response = await axios.delete(
+        `${API_URL}/api/remove-from-laundry/all`,
+        {
+          headers: {
+            Authorization: `Bearer ${storedToken}`,
+          },
         }
-      });
-  
+      );
+
       if (response.status === 200) {
-        console.log('All laundry items deleted successfully from local storage and backend.');
+        console.log(
+          "All laundry items deleted successfully from local storage and backend."
+        );
       } else {
-        console.error('Error deleting laundry items from backend.');
+        console.error("Error deleting laundry items from backend.");
       }
     } catch (error) {
-      console.error('Error deleting laundry:', error);
+      console.error("Error deleting laundry:", error);
     }
   };
-  
- 
-      
-    
 
-
- {/* const removeAllLaundryItems = async () => {
+  {
+    /* const removeAllLaundryItems = async () => {
     try {
       const storedToken = localStorage.getItem("authToken");
       await axios.delete(`${API_URL}/api/remove-from-laundry/all`, {
@@ -103,7 +100,8 @@ function LaundryList() {
     } catch (error) {
       console.error("Error removing all laundry items:", error);
     }
-  };*/}
+  };*/
+  }
 
   return (
     <div className="clothing-list added-list">
@@ -113,15 +111,14 @@ function LaundryList() {
           laundry.map((clothing) => (
             <li key={clothing._id} className="clothing-item-added">
               <Link to={`/clothing/${clothing._id}`}>
-               <img src={clothing.image} />
-               <p>{clothing.title}</p>
-               <p>{clothing.careInstructions}</p>
+                <img src={clothing.image} />
+                <p>{clothing.title}</p>
+                <p>{clothing.careInstructions}</p>
               </Link>
 
               <button onClick={() => removeLaundryItem(clothing._id)}>
-                <DeleteOutlineIcon/>
+                <DeleteOutlineIcon />
               </button>
-             
             </li>
           ))}
       </ol>

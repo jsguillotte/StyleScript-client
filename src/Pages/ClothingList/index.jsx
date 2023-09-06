@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import "../../index.css";
 
-
-
-const API_URL = "http://localhost:5005";
+const API_URL = "https://style-script.onrender.com";
 
 function ClothingListPage() {
   const [sortedClothing, setSortedClothing] = useState({});
@@ -25,18 +23,21 @@ function ClothingListPage() {
         console.log(clothingData.userClothing);
 
         // Filter clothing items based on the selected weather filter
-        const filteredClothing = clothingData.userClothing.filter((clothing) => {
-          return (
-            selectedWeatherFilter === "all" ||
-            clothing.season === "both" ||
-            clothing.season === selectedWeatherFilter
-          );
-        });
+        const filteredClothing = clothingData.userClothing.filter(
+          (clothing) => {
+            return (
+              selectedWeatherFilter === "all" ||
+              clothing.season === "both" ||
+              clothing.season === selectedWeatherFilter
+            );
+          }
+        );
 
         // Filter clothing items by name based on search query (case-insensitive)
-        const filteredByName = filteredClothing.filter((clothing) =>
-          clothing.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          clothing.type.toLowerCase().includes(searchQuery.toLowerCase())
+        const filteredByName = filteredClothing.filter(
+          (clothing) =>
+            clothing.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            clothing.type.toLowerCase().includes(searchQuery.toLowerCase())
         );
 
         // Create an object to store clothing items sorted by type
@@ -69,7 +70,9 @@ function ClothingListPage() {
     <div>
       <div className="search-bars">
         <div className="clothing-filters add-button">
-        <Link to='/clothing/create'><button>Add Clothing</button></Link>
+          <Link to="/clothing/create">
+            <button>Add Clothing</button>
+          </Link>
         </div>
         <div className="clothing-filters search-bar weather-search">
           <label>Select Weather:</label>
@@ -82,7 +85,7 @@ function ClothingListPage() {
             <option value="cold">Cold</option>
           </select>
         </div>
-        <div class='clothing-filters search-bar clothing-search'>
+        <div class="clothing-filters search-bar clothing-search">
           <label>Search:</label>
           <input
             type="text"
@@ -94,22 +97,22 @@ function ClothingListPage() {
       </div>
       {/* Display clothing items */}
       {Object.entries(sortedClothing).map(([type, items]) => (
-  <div key={type} className="clothing-list">
-    <h2>{type.toUpperCase()}</h2>
-    <div className="clothing-grid">
-      {items.map((clothing) => (
-        <div key={clothing._id} className="clothing-item">
-          <Link to={`/clothing/${clothing._id}`}>
-            <img src={clothing.image} alt={clothing.title} />
-            <div className="card-content">
-            <h3 className="clothing-title">{clothing.title}</h3>
-            </div>
-          </Link>
+        <div key={type} className="clothing-list">
+          <h2>{type.toUpperCase()}</h2>
+          <div className="clothing-grid">
+            {items.map((clothing) => (
+              <div key={clothing._id} className="clothing-item">
+                <Link to={`/clothing/${clothing._id}`}>
+                  <img src={clothing.image} alt={clothing.title} />
+                  <div className="card-content">
+                    <h3 className="clothing-title">{clothing.title}</h3>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       ))}
-    </div>
-  </div>
-))}
     </div>
   );
 }
@@ -120,7 +123,7 @@ export default ClothingListPage;
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://style-script.onrender.com";
 
 function ClothingListPage() {
   const [clothing, setClothing] = useState([]);
