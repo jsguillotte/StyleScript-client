@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 
@@ -105,12 +106,12 @@ function LaundryList() {
   };*/}
 
   return (
-    <div className="clothing-list">
+    <div className="clothing-list added-list">
       <h2>Laundry List</h2>
       <ol className="clothing-grid">
         {laundry &&
           laundry.map((clothing) => (
-            <li key={clothing._id} className="clothing-item">
+            <li key={clothing._id} className="clothing-item-added">
               <Link to={`/clothing/${clothing._id}`}>
                <img src={clothing.image} />
                <p>{clothing.title}</p>
@@ -118,13 +119,13 @@ function LaundryList() {
               </Link>
 
               <button onClick={() => removeLaundryItem(clothing._id)}>
-                Remove
+                <DeleteIcon/>
               </button>
              
             </li>
           ))}
       </ol>
-      <button onClick={handleDeleteAll}>Delete All</button>
+      <button onClick={handleDeleteAll}>Clear</button>
     </div>
   );
 }

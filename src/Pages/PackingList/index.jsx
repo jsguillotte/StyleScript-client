@@ -4,6 +4,7 @@
   import { useState, useEffect } from "react";
   import axios from "axios";
   import { Link } from "react-router-dom";
+  import DeleteIcon from '@mui/icons-material/Delete';
   
   const API_URL = "http://localhost:5005";
   
@@ -83,7 +84,7 @@
 
 
     return (
-      <div className="clothing-list">
+      <div className="clothing-list added-list">
         <h2>Packing List</h2>
         <ol className="clothing-grid">
           {packing && packing.map((clothing) => (
@@ -94,10 +95,10 @@
            
           </Link>
 
-             <button onClick={() => removePackingItem(clothing._id)}>Delete</button>
+             <button onClick={() => removePackingItem(clothing._id)}><DeleteIcon/></button>
             </li>))}
         </ol>
-        <button onClick={handleDeleteAll}>Delete All</button>
+        <button onClick={handleDeleteAll}>Clear</button>
       </div>
     );
   }

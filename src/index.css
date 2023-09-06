@@ -186,6 +186,30 @@ button:focus-visible {
   color: white;
 }
 
+.added-list {
+  margin-top: 80px;
+}
+
+.clothing-item-added {
+  
+  border: 1px solid #ccc; /* Add a border around each item if desired */
+  border-radius: 5px;
+  padding: 5px; 
+  text-align: center;
+  overflow: scroll;
+  
+  
+}
+
+
+.clothing-item-added img {
+  width: 100%;
+  height: 65%;
+  object-fit: cover;
+  margin: 0;
+
+}
+
 .clothing-create {
   margin-top: 100px;
   margin-left: 15px;
