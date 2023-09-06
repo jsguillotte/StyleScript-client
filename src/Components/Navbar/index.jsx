@@ -62,6 +62,8 @@ function Navbar() {
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+    console.log('user info',user)
   
     const handleProfileMenuOpen = (event) => {
       setAnchorEl(event.currentTarget);

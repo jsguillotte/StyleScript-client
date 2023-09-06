@@ -4,7 +4,8 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import DryCleaningIcon from "@mui/icons-material/DryCleaning";
 import LuggageIcon from "@mui/icons-material/Luggage";
 
-const API_URL = "https://style-script.onrender.com";
+// const API_URL = "https://style-script.onrender.com";
+const API_URL = "http://localhost:5005";
 
 function ClothingDetailsPage() {
   const [clothing, setClothing] = useState(null);

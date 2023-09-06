@@ -6,7 +6,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
-const API_URL = "https://style-script.onrender.com";
+// const API_URL = "https://style-script.onrender.com";
+const API_URL = "http://localhost:5005";
 
 function PackingList() {
   const [packing, setPacking] = useState([]);
