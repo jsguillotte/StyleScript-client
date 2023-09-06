@@ -53,7 +53,35 @@
       }
     };
   
-  
+     // Function to remove all items from the laundry list
+     const handleDeleteAll = async () => {
+      try {
+        const storedToken = localStorage.getItem("authToken");
+    
+        // Step 1: Clear the laundry list in local storage
+        localStorage.removeItem("packingList");
+    
+        // Step 2: Clear the laundry state in your component
+        setPacking([]);
+    
+        // Step 3: Send a request to your backend to delete all items
+        const response = await axios.delete(`${API_URL}/api/remove-from-packing/all`, {
+          headers: {
+            Authorization: `Bearer ${storedToken}`,
+          }
+        });
+    
+        if (response.status === 200) {
+          console.log('All packing items deleted successfully from local storage and backend.');
+        } else {
+          console.error('Error deleting packing items from backend.');
+        }
+      } catch (error) {
+        console.error('Error deleting packing:', error);
+      }
+    };
+
+
     return (
       <div className="clothing-list">
         <h2>Packing List</h2>
@@ -69,7 +97,7 @@
              <button onClick={() => removePackingItem(clothing._id)}>Delete</button>
             </li>))}
         </ol>
-        
+        <button onClick={handleDeleteAll}>Delete All</button>
       </div>
     );
   }

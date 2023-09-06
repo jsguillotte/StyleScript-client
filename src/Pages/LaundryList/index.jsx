@@ -52,7 +52,7 @@ function LaundryList() {
       console.error("Error removing from laundry:", error);
     }
   };
- // Function to remove all items from the laundry list
+
  
    // Function to remove all items from the laundry list
    const handleDeleteAll = async () => {
