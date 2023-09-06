@@ -197,6 +197,7 @@ function AddClothing() {
             value={season}
             onChange={(e) => setSeason(e.target.value)}
           >
+            <option value=""></option>
             <option value="both">Both</option>
             <option value="warm">Warm</option>
             <option value="cold">Cold</option>
