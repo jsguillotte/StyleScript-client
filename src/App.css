@@ -79,7 +79,7 @@
 }
 
 .weather-search {
-  background-color: #e0e0e0;
+  background-color: #f0f0f0;
   margin-right: 15px;
    /* Background color for weather search */
 }
@@ -464,3 +464,8 @@ ol {
   
 }
 
+button {
+  background-color: #f0f0f0;
+  padding: 10px 10px;
+  
+}
