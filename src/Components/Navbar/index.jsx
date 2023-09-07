@@ -193,7 +193,7 @@ function Navbar() {
   
     return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="fixed" sx={{ backgroundColor: 'gray'}}>
+        <AppBar position="fixed" sx={{ backgroundColor: "#f8f8f8"}}>
           <Toolbar>
             {/*}
             <IconButton
@@ -212,14 +212,14 @@ function Navbar() {
               component="div"
               sx={{ display: { xs: 'flex', sm: 'block' } }}
             >
-           <Link to='/'> StyleScript</Link> 
+           <Link to='/' > <img src='/public/images/Horizontal-logo.svg' className='nav-logo'/></Link> 
             </Typography>
            
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: 'flex', md: 'flex' } }}>
               <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                 <Link to='/laundry' className='laundry-link'>
-                <Badge badgeContent={user?.laundry?.length || 0} color="error">
+                <Badge badgeContent={user?.laundry?.length || 0} color='primary' style={{color: 'gray'}}>
                   <DryCleaningIcon />
                 </Badge>
                 </Link>
@@ -230,7 +230,7 @@ function Navbar() {
                 color="inherit"
               >
                 <Link to='/packing' className='packing-link'>
-                <Badge badgeContent={user?.packing?.length} color="error">
+                <Badge badgeContent={user?.packing?.length} color='primary' style={{color: 'gray'}}>
                   <LuggageIcon />
                 </Badge>
                 </Link>
