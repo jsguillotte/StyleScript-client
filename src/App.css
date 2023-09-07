@@ -446,3 +446,14 @@ ol {
 
 }
 
+.homePage {
+  background-image: url("../public/images/Vertical-logo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 80vh;
+  min-width: 100vw;
+  margin-top: 80px;
+  margin-left: 20vw;
+  opacity: 0.7;
+}
+
