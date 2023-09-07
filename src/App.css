@@ -13,7 +13,8 @@
   margin-left:2%;
   margin-right: 3%;
   background-image: url("../public/images/Hangers.png");
-  background-repeat: repeat-x;
+  background-cover: cover;
+  z-index: -1;
   
   
 
