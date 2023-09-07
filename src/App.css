@@ -111,6 +111,7 @@
 }
 
 .navbar-container {
+  background-color: #f8f8f8;
   display: flex;
   align-items: center;
    /* Vertically align items to the center */
@@ -433,5 +434,5 @@ ol {
 }
 
 .clothing-body {
-  background-color: #e7e3d6;
+  background-color: #fffcf7;
 }
