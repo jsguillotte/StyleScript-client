@@ -4,8 +4,8 @@ import React, { useState } from "react";
 function HomePage() {
   
   return (
-    <div className="homePage">
-     <div> 
+    <div className="home-hero">
+     <div className="homePage"> 
       </div>
     </div>
   );
