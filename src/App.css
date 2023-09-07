@@ -195,7 +195,7 @@ ul {
 }
 
 .clothing-details-container {
-  background-color: blue;
+  background-image: url("../public/images/Hangers.png");
   display: flex;
   justify-content: center; /* Horizontally center */
   align-items: center; 
@@ -438,7 +438,3 @@ ol {
 
 }
 
-.clothing-details-body {
-  /* background-image: url("../public/images/Hangers.png"); */
-  background-color: blue;
-}
