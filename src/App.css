@@ -180,7 +180,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #f0f0f0;
+  background-color: #fffcf7;
   border-radius: 5px;
   padding: 5px;
   padding-left: 10px;
@@ -215,11 +215,10 @@ ul {
   margin-top: 80px;
   max-width: 400px; /* Adjust the width as needed */
   width: 100%; /* Make it as wide as its container */
-
   padding: 10px;
-  background-color: white;
+  background-color: #fffcf7;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adjust the shadow as needed */
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1); /* Adjust the shadow as needed */
   text-align: center;
  
   
@@ -284,15 +283,16 @@ ul {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f0f0; /* Set a background color */
+  background-image: url("../public/images/Hangers.png");
+  background-size: cover; /* Set a background color */
 }
 
 /* Style the form container */
 .clothing-create form {
-  background-color: #fff; /* Form background color */
+  background-color: #fffcf7; /* Form background color */
   padding: 20px;
   border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow */
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2); /* Shadow */
   max-width: 500px; /* Limit form width for responsiveness */
   width: 100%; /* Full width on smaller screens */
   margin-top: 100px;
@@ -401,15 +401,16 @@ ol {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f0f0f0; /* Background color for the entire page */
+  background-image: url("../public/images/Hangers.png");
+  background-size: cover; 
 }
 
 /* Styling the form */
 .login-form {
-  background-color: #fff; /* Background color for the form */
+  background-color: #fffcf7; /* Background color for the form */
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Box shadow for the form */
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2); /* Box shadow for the form */
   text-align: center;
 }
 
@@ -454,11 +455,12 @@ ol {
   min-width: 100vw;
   margin-top: 80px;
   margin-left: 20vw;
+  background-color: #fffcf7;
   opacity: 0.7;
 }
 
 .nav-logo {
-  width: 220px; /* Adjust the width as needed */
+  font-family: 'Montserrat' , sans-serif;
   
 }
 
