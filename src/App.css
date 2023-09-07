@@ -140,6 +140,8 @@
 
 .added-list {
   margin-top: 80px;
+  background-image: url("../public/images/Hangers.png");
+  background-size: repeat;
 }
 
 .clothing-item-added {
