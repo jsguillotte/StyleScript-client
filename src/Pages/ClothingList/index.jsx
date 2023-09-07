@@ -13,6 +13,7 @@ function ClothingListPage() {
   const [searchQuery, setSearchQuery] = useState(""); // State for search input
   const { clothingId } = useParams();
 
+
   useEffect(() => {
     async function fetchClothing() {
       try {
@@ -41,20 +42,32 @@ function ClothingListPage() {
             clothing.type.toLowerCase().includes(searchQuery.toLowerCase())
         );
 
-        // Create an object to store clothing items sorted by type
-        const sortedByType = filteredByName.reduce((accumulator, item) => {
-          if (!accumulator[item.type]) {
-            accumulator[item.type] = [];
-          }
-          accumulator[item.type].push(item);
-          return accumulator;
-        }, {});
 
-        setSortedClothing(sortedByType);
-      } catch (error) {
-        console.error("Error fetching clothing:", error);
-      }
+
+        // Create an object to store clothing items sorted by type
+
+        
+        // Define the desired order of clothing types
+      const desiredOrder = ["tops", "bottoms", "dress", "outerwear", "accessories", "shoes", "other"];
+
+      // Create an object to store clothing items sorted by type in the desired order
+      const sortedByType = {};
+
+      // Initialize the object with empty arrays in the desired order
+      desiredOrder.forEach(type => {
+        sortedByType[type] = [];
+      });
+
+      // Iterate through the clothing items and push them into the corresponding type arrays
+      filteredByName.forEach(item => {
+        sortedByType[item.type].push(item);
+      });
+
+      setSortedClothing(sortedByType);
+    } catch (error) {
+      console.error("Error fetching clothing:", error);
     }
+  }
 
     fetchClothing();
   }, [selectedWeatherFilter, searchQuery]);
@@ -67,8 +80,10 @@ function ClothingListPage() {
     setSearchQuery(event.target.value);
   };
 
+  
+
   return (
-    <div>
+    <div className="clothing-body">
       <div className="search-bars">
         <div className="clothing-filters add-button">
           <Link to="/clothing/create">

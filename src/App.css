@@ -431,3 +431,7 @@ ol {
 .login-form button:hover {
   background-color: #474849; /* Button hover background color */
 }
+
+.clothing-body {
+  background-color: #e7e3d6;
+}

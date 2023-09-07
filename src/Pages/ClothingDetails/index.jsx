@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { AuthContext } from "../../Context/auth.context";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import DryCleaningIcon from "@mui/icons-material/DryCleaning";
@@ -16,6 +17,22 @@ function ClothingDetailsPage() {
   const [isInLaundry, setIsInLaundry] = useState(false);
   const [isInPacking, setIsInPacking] = useState(false);
   const [noteContent, setNoteContent] = useState("");
+
+  const { storeToken, authenticateUser } = useContext(AuthContext);
+
+
+  const tokenUpdate = async () => {
+    const storedToken = localStorage.getItem("authToken");
+    try {
+      const response = await axios.get(`${API_URL}/auth/updateToken`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      });
+      storeToken(response.data.authToken);
+      await authenticateUser();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     async function fetchClothing() {
@@ -73,6 +90,7 @@ function ClothingDetailsPage() {
           }
         );
         refreshClothing();
+        await tokenUpdate();
         navigate("/clothing");
       } catch (error) {
         console.log(error);
@@ -113,6 +131,7 @@ function ClothingDetailsPage() {
           }
         );
         refreshClothing();
+        await tokenUpdate();
         navigate("/clothing");
       } catch (error) {
         console.log(error);

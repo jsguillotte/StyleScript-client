@@ -1,7 +1,8 @@
 {
   /*display added to laundry list */
 }
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../Context/auth.context";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
@@ -11,6 +12,22 @@ const API_URL = "http://localhost:5005";
 
 function LaundryList() {
   const [laundry, setLaundry] = useState([]);
+
+  const { storeToken, authenticateUser } = useContext(AuthContext);
+
+  const tokenUpdate = async () => {
+    const storedToken = localStorage.getItem("authToken");
+    try {
+      const response = await axios.get(`${API_URL}/auth/updateToken`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      });
+      storeToken(response.data.authToken);
+      await authenticateUser();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 
   useEffect(() => {
     async function fetchLaundry() {
@@ -46,6 +63,7 @@ function LaundryList() {
 
       // After successfully removing the item, update the laundry list
       const updatedLaundry = laundry.filter((item) => item._id !== itemId);
+      await tokenUpdate();
       setLaundry(updatedLaundry);
     } catch (error) {
       console.error("Error removing from laundry:", error);
@@ -72,6 +90,7 @@ function LaundryList() {
           },
         }
       );
+      await tokenUpdate();
 
       if (response.status === 200) {
         console.log(

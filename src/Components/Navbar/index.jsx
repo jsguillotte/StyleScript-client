@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import {useContext} from 'react'; 
 import { AuthContext } from '../../Context/auth.context';
@@ -20,6 +20,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import DryCleaningIcon from '@mui/icons-material/DryCleaning';
 import LuggageIcon from '@mui/icons-material/Luggage';
 import MoreIcon from '@mui/icons-material/MoreVert';
+
 
 
 function CustomNavbar() {
@@ -54,16 +55,17 @@ function CustomNavbar() {
 }
 
 function Navbar() {
-  const {isLoggedIn, user, logOutUser} = useContext(AuthContext);
+  const {isLoggedIn, user, logOutUser, storeToken, authenticateUser} = useContext(AuthContext);
 
-
+   const storedToken = localStorage.getItem("authToken");
    const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-    console.log('user info',user)
+    useEffect(() => {}, [user] );
+
   
     const handleProfileMenuOpen = (event) => {
       setAnchorEl(event.currentTarget);

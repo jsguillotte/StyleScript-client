@@ -29,7 +29,7 @@ function AddClothing() {
   const handleFileUpload = (e) => {
     //format options
 
-    const allowedFormats = ['image/jpeg', 'image/png', 'image/gif'];
+    const allowedFormats = ['image/jpeg', 'image/png', 'image/gif', "image/webp"];
 
     const file = e.target.files[0];
   
