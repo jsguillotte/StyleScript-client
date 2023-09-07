@@ -195,7 +195,7 @@ ul {
 }
 
 .clothing-details-container {
-  background-color: blue
+  background-color: blue;
   display: flex;
   justify-content: center; /* Horizontally center */
   align-items: center; 
