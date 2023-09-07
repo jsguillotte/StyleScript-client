@@ -448,15 +448,15 @@ ol {
 }
 
 .homePage {
-  background-image: url("../public/images/Vertical-logo.svg");
-  background-size: contain;
+  background-image: url("../public/images/Horizontal-logo.svg");
+  margin: 0;
+  padding: 0;
+  height: 100px;
+  width: 100vw;
   background-repeat: no-repeat;
-  min-height: 80vh;
-  min-width: 100vw;
-  margin-top: 80px;
-  margin-left: 20vw;
-  background-color: #fffcf7;
-  opacity: 0.7;
+  position: absolute;
+  bottom: 15px;
+  left: 25vw;
 }
 
 .nav-logo {
