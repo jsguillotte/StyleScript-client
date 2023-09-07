@@ -96,7 +96,7 @@ function EditClothing() {
     return (
            <div className='clothing-create'>
             <form onSubmit={handleSubmit}>
-            <div>
+            <div className='radio-buttons'>
                 <label>
                 Image:
                 <input

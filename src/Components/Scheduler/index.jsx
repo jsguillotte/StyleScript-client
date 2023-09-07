@@ -99,12 +99,15 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
     "tr:last-child &": {
       borderBottom: "none",
+      
     },
     "&:hover": {
       backgroundColor: "white",
+      color: "gray"
     },
     "&:focus": {
       backgroundColor: alpha(theme.palette.primary.main, 0.15),
+      backgroundColor: 'gray',
       outline: 0,
     },
   },
@@ -143,17 +146,22 @@ const StyledAppointmentsAppointment = styled(Appointments.Appointment)(() => ({
     borderRadius: "10px",
     "&:hover": {
       opacity: 0.6,
+      backgroundColor: "gray",
     },
+    backgroundColor: 'gray',
+    opacity: 0.5,
   },
 }));
 
 const StyledToolbarFlexibleSpace = styled(Toolbar.FlexibleSpace)(() => ({
   [`&.${classes.flexibleSpace}`]: {
     flex: "none",
+    
   },
   [`& .${classes.flexContainer}`]: {
     display: "flex",
     alignItems: "center",
+    
   },
 }));
 const StyledAppointmentsAppointmentContent = styled(
@@ -163,6 +171,8 @@ const StyledAppointmentsAppointmentContent = styled(
     "&>div>div": {
       whiteSpace: "normal !important",
       lineHeight: 1.2,
+      
+      
     },
   },
 }));
@@ -322,7 +332,7 @@ function MonthScheduler() {
         <EditRecurrenceMenu />
         <AppointmentTooltip showCloseButton showDeleteButton showOpenButton />
         <AppointmentForm />
-        <DragDropProvider />
+        <DragDropProvider/>
       </Scheduler>
     </Paper>
   );

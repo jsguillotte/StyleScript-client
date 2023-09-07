@@ -33,34 +33,34 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email:{" "}
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <label>
-          Password:{" "}
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <button type="submit">Login</button>
-      </form>
-      {errorMessage && <p>{errorMessage}</p>}
-      <p>
-        Don't have an account? <Link to="/signup">Sign Up</Link>
-      </p>
-    </div>
+    <div className="login-container">
+     <h3>Login</h3> 
+    <form onSubmit={handleSubmit} className="login-form">
+      <label>
+        Email:{" "}
+        <input
+          type="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </label>
+      <label>
+        Password:{" "}
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </label>
+      <button type="submit">Login</button>
+    </form>
+    {errorMessage && <p>{errorMessage}</p>}
+    <p>
+      Don't have an account? <Link to="/signup">Sign Up</Link>
+    </p>
+  </div>
   );
 }
 

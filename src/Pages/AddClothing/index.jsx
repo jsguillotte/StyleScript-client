@@ -27,6 +27,26 @@ function AddClothing() {
 
   //handle fileUpload
   const handleFileUpload = (e) => {
+    //format options
+
+    const allowedFormats = ['image/jpeg', 'image/png', 'image/gif'];
+
+    const file = e.target.files[0];
+  
+    if (!file) {
+      // Handle the case where no file is selected.
+      return;
+    }
+  
+    if (!allowedFormats.includes(file.type)) {
+      // Display an error message to the user for invalid format.
+      console.log("Invalid image format. Please select a valid image file.");
+      return;
+    }
+  
+    console.log("The file to be uploaded is: ", file);
+
+    //handle upload
     console.log("The file to be uploaded is: ", e.target.files[0]);
     const uploadData = new FormData();
     uploadData.append("image", e.target.files[0]);
