@@ -196,6 +196,7 @@ ul {
 
 .clothing-details-container {
   background-image: url("../public/images/Hangers.png");
+  background-size: cover;
   display: flex;
   justify-content: center; /* Horizontally center */
   align-items: center; 
