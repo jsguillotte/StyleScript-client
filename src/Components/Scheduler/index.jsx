@@ -249,8 +249,8 @@ function MonthScheduler() {
 
   useEffect(() => {
     async function getData() {
-      // const API_URL = "https://style-script.onrender.com";
-      const API_URL = "http://localhost:5005";
+      const API_URL = "https://style-script.onrender.com";
+      // const API_URL = "http://localhost:5005";
       const storedToken = localStorage.getItem("authToken");
       const response = await axios.get(`${API_URL}/api/calendar-clothing`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -262,8 +262,8 @@ function MonthScheduler() {
   }, []);
 
   const sendCalendar = async (data) => {
-    // const API_URL = "https://style-script.onrender.com";
-    const API_URL = "http://localhost:5005";
+    const API_URL = "https://style-script.onrender.com";
+    // const API_URL = "http://localhost:5005";
     const storedToken = localStorage.getItem("authToken");
     if (storedToken) {
       const requestBody = { data };
@@ -274,8 +274,8 @@ function MonthScheduler() {
   };
 
   const deleteCalendarEntry = async (schedulerId) => {
-    // const API_URL = "https://style-script.onrender.com";
-    const API_URL = "http://localhost:5005";
+    const API_URL = "https://style-script.onrender.com";
+    // const API_URL = "http://localhost:5005";
     const storedToken = localStorage.getItem("authToken");
 
     try {
