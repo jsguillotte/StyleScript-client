@@ -212,7 +212,7 @@ function Navbar() {
               component="div"
               sx={{ display: { xs: 'flex', sm: 'block' } }}
             >
-           <Link to='/' > <img src='./public/images/Horizontal-logo.svg' className='nav-logo'/></Link> 
+           <Link to='/' > <img src='../public/images/Horizontal-logo.svg' className='nav-logo'/></Link> 
             </Typography>
            
             <Box sx={{ flexGrow: 1 }} />
