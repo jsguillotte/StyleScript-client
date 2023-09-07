@@ -275,7 +275,7 @@ function ClothingDetailsPage() {
           
 
            {/* Add Note */}
-           <div>
+           <div className="clothing-details-body">
             <textarea
               value={noteContent}
               onChange={(e) => setNoteContent(e.target.value)}

@@ -435,5 +435,9 @@ ol {
 
 .clothing-body {
   background-color: #fffcf7;
-  
+
+}
+
+.clothing-details-body {
+  background-image: url("../public/images/Hangers.png");
 }
