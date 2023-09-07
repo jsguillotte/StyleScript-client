@@ -12,12 +12,14 @@
 .clothing-list {
   margin-left:2%;
   margin-right: 3%;
-  background-image: url("../public/images/Hangers.png");
-  background-cover: cover;
-  z-index: -1;
-  
-  
+ 
+}
 
+.laundry-body {
+  background-color: #fffcf7;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-size: cover;
 }
 
 .centered{
@@ -143,7 +145,7 @@
 }
 
 .added-list {
-  margin-top: 80px;
+  padding-top: 60px;
  
 }
 

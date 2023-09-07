@@ -124,6 +124,7 @@ function LaundryList() {
   }
 
   return (
+    <div className="laundry-body">
     <div className="clothing-list added-list">
       <div className="centered">
         <h2>Laundry List</h2>
@@ -146,6 +147,7 @@ function LaundryList() {
           ))}
       </ol>
      
+    </div>
     </div>
   );
 }
