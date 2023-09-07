@@ -12,6 +12,9 @@
 .clothing-list {
   margin-left:2%;
   margin-right: 3%;
+  background-image: url("../public/images/Hangers.png");
+  background-repeat: repeat-x;
+  
   
 
 }
@@ -140,8 +143,7 @@
 
 .added-list {
   margin-top: 80px;
-  background-image: url("../public/images/Hangers.png");
-  background-size: repeat;
+ 
 }
 
 .clothing-item-added {
