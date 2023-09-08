@@ -456,7 +456,8 @@ ol {
   background-repeat: no-repeat;
   position: absolute;
   bottom: 15px;
-  left: 25vw;
+  left: 30vw;
+  z-index: 5;
 }
 
 .nav-logo {
@@ -479,4 +480,14 @@ button {
   margin: 0;
   padding: 0;
  
+}
+
+.hero-text {
+  text-align: right;
+  color:#1e1b1b; /* Text color */
+  background-color: rgba(105, 104, 104, 0.2); /* Background color with transparency */
+  padding: 20px;
+  border-radius: 10px; /* Optional: Add rounded corners */
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
 }

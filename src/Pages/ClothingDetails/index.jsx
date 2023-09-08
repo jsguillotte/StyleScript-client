@@ -253,13 +253,13 @@ function ClothingDetailsPage() {
       
 
         
-         { clothing.type && (<p>Type: {clothing.type}</p>)}
-         { clothing.description &&   (<p>Description: {clothing.description}</p>)}
+         { clothing.type && (<p><strong>Type:</strong> {clothing.type}</p>)}
+         { clothing.description &&   (<p><strong>Description:</strong>{clothing.description}</p>)}
 
-         { clothing.brand &&  (<p>Brand: {clothing.brand}</p>)}
-         {clothing.size && (<p>Size: {clothing.size}</p> )}
-         { clothing.careInstructions && (<p>Care Label: {clothing.careInstructions}</p> )}
-         { clothing.season && (<p>Weather: {clothing.season}</p> )}
+         { clothing.brand &&  (<p><strong>Brand:</strong>{clothing.brand}</p>)}
+         {clothing.size && (<p><strong>Size:</strong> {clothing.size}</p> )}
+         { clothing.careInstructions && (<p><strong>Care Label:</strong> {clothing.careInstructions}</p> )}
+         { clothing.season && (<p><strong>Weather:</strong>  {clothing.season}</p> )}
 
          <button onClick={addToCalendar}><CalendarMonthIcon/></button>
 
