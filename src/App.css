@@ -451,7 +451,7 @@ ol {
   background-image: url("../public/images/Horizontal-logo.svg");
   margin: 0;
   padding: 0;
-  height: 100px;
+  height: 80px;
   width: 100vw;
   background-repeat: no-repeat;
   position: absolute;
@@ -477,6 +477,9 @@ button {
   background-position: center;
   height: 100vh;
   width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   padding: 0;
  
