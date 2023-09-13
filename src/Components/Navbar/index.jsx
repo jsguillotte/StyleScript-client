@@ -34,7 +34,7 @@ function CustomNavbar() {
       </div>
       <div>
         <Link to="/clothing" className='link'>
-          My Closet
+          Closet
         </Link>
       </div>
       {isLoggedIn ? (

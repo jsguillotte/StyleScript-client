@@ -146,10 +146,10 @@ const StyledAppointmentsAppointment = styled(Appointments.Appointment)(() => ({
     borderRadius: "10px",
     "&:hover": {
       opacity: 0.6,
-      backgroundColor: "gray",
+      backgroundColor: "#8c6677",
     },
-    backgroundColor: 'gray',
-    opacity: 0.5,
+    backgroundColor: '#685185',
+    
   },
 }));
 
