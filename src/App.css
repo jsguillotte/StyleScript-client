@@ -448,16 +448,18 @@ ol {
 }
 
 .homePage {
+
   background-image: url("../public/images/Horizontal-logo.svg");
-  margin: 0;
   padding: 0;
-  height: 80px;
-  width: 100vw;
+  height: 70px;
+  width: 30%;
   background-repeat: no-repeat;
   position: absolute;
-  bottom: 15px;
-  left: 35vw;
   z-index: 5;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  
 }
 
 .nav-logo {

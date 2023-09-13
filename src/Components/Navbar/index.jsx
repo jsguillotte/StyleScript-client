@@ -31,6 +31,8 @@ function CustomNavbar() {
         <Link to="/calendar" className='link'>
           Calendar
         </Link>
+      </div>
+      <div>
         <Link to="/clothing" className='link'>
           My Closet
         </Link>
