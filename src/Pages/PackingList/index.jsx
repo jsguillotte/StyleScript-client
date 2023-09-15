@@ -121,7 +121,7 @@ function PackingList() {
                 <p>{clothing.title}</p>
               </Link>
 
-              <button onClick={() => removePackingItem(clothing._id)}>
+              <button onClick={() => removePackingItem(clothing._id)} className="delete-list-item">
                 <DeleteOutlineIcon />
               </button>
             </li>

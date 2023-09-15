@@ -140,7 +140,7 @@ function LaundryList() {
                 <p>{clothing.careInstructions}</p>
               </Link>
 
-              <button onClick={() => removeLaundryItem(clothing._id)}>
+              <button onClick={() => removeLaundryItem(clothing._id)} className="delete-list-item">
                 <DeleteOutlineIcon />
               </button>
             </li>

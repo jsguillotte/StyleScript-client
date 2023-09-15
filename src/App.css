@@ -170,6 +170,12 @@
 
 }
 
+.delete-list-item {
+  padding: 1px 4px;
+  background-color: #eeeeed;
+  
+}
+
 
 
 .front-calendar {
@@ -464,7 +470,7 @@ ol {
 
 .nav-logo {
   font-family: 'Montserrat' , sans-serif;
-  
+  font-size: 1.2rem;
 }
 
 button {
@@ -495,4 +501,58 @@ button {
   border-radius: 10px; /* Optional: Add rounded corners */
   font-family: "Montserrat", sans-serif;
   font-size: 10px;
+}
+
+.features > div {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  background-color: #fffcf7;
+}
+.features > div > article {
+  width: 25%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color:rgb(240, 238, 238);
+  opacity: 0.9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.features img {
+  width: 80%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.features h3 {
+  font-family: "Montserrat", sans-serif;
+  color:#1e1b1b;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  background-color: rgb(214, 203, 210);
+  height: 40px;
+  padding-bottom: 15px;
+  margin-bottom: 0;
+  margin-top: 15px;
+}
+.footer p {
+  font-family:  'Courier New', Courier, monospace;
+  color:#292525;
+  font-weight: bold;
+  opacity: 0.7;
+ 
+}
+.footer-content {
+  display: inline-block;
+}
+.footer-text img {
+  
+  margin-right: 5px;
+  
 }
