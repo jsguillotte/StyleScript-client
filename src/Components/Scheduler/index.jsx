@@ -148,7 +148,7 @@ const StyledAppointmentsAppointment = styled(Appointments.Appointment)(() => ({
       opacity: 0.6,
       backgroundColor: "#8c6677",
     },
-    backgroundColor: '#685185',
+    backgroundColor: "#b59aab",
     
   },
 }));

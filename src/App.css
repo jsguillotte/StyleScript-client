@@ -531,6 +531,20 @@ button {
   color:#1e1b1b;
 }
 
+.calendar h2{
+  font-family: "Montserrat", sans-serif;
+  color:#1e1b1b;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.calendar img {
+  width: 80%;
+  margin: 0 auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
 .footer {
   position: absolute;
   width: 100%;
