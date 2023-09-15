@@ -505,6 +505,12 @@ button {
   font-size: 10px;
 }
 
+.sections {
+  margin: 0;
+  background-color: #fffcf7;
+  padding-bottom: 15px;
+}
+
 .features > div {
   display: flex;
   justify-content: space-evenly;
@@ -546,6 +552,7 @@ button {
   margin: 0 auto;
   object-fit: cover;
   border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   
 }
 
@@ -557,7 +564,7 @@ button {
   height: 40px;
   padding-bottom: 15px;
   margin-bottom: 0;
-  margin-top: 15px;
+  margin-top: 0;
 }
 .footer p {
   font-family:  'Courier New', Courier, monospace;

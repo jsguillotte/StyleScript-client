@@ -16,6 +16,7 @@ function HomePage() {
     <div className="homePage">
      
     </div>
+    <div className="sections">
     <section className="features">
       <div>
         <article>
@@ -40,6 +41,7 @@ function HomePage() {
        {/* <img src="/images/calendar.png" alt="" width={600}/>*/}
       </div>
     </section>
+    </div>
     <footer className="footer">
       <div >
         <div className="footer-text">
