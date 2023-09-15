@@ -91,7 +91,7 @@ function ClothingListPage() {
           </Link>
         </div>
         <div className="clothing-filters search-bar weather-search">
-          <label>Select Weather:</label>
+          <label>Weather:</label>
           <select
             onChange={(e) => handleWeatherFilterChange(e.target.value)}
             value={selectedWeatherFilter}
