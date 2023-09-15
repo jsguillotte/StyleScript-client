@@ -479,7 +479,7 @@ button {
   
 }
 .home-hero {
-  background-image: url("../public/images/Organize-clothing.jpeg");
+  background-image: url("/images/Organize-clothing.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
