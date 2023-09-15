@@ -36,7 +36,8 @@ function HomePage() {
     <section className="calendar">
       <div style={{ textAlign: 'center' }}>
         <h2>Plan outfits with a drag-and-drop calendar</h2>
-        <img src="/images/calendar.png" alt="" width={600}/>
+        <video controls autoPlay src="/images/Calendar-GIF.mp4"></video>
+       {/* <img src="/images/calendar.png" alt="" width={600}/>*/}
       </div>
     </section>
     <footer className="footer">

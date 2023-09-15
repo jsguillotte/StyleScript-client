@@ -540,11 +540,13 @@ button {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.calendar img {
+.calendar video {
   width: 80%;
+  height:auto;
   margin: 0 auto;
   object-fit: cover;
   border-radius: 10px;
+  
 }
 
 .footer {
