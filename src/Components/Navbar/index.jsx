@@ -44,11 +44,11 @@ function CustomNavbar() {
         </div>
       ) : (
         <div>
-          <Link to="/signup" className='link'>
-           Signup
-          </Link>
           <Link to="/login" className='link'>
             Login
+          </Link>
+          <Link to="/signup" className='link'>
+           Signup
           </Link>
         </div>
       )}
@@ -132,7 +132,7 @@ function Navbar() {
         
         <MenuItem>
         
-          <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+          <IconButton size="small" aria-label="show 4 new mails" color="inherit">
            
           <Link to='/laundry'>
             
@@ -151,7 +151,7 @@ function Navbar() {
 
         <MenuItem>
           <IconButton
-            size="large"
+            size="small"
             aria-label="show 17 new notifications"
             color="inherit"
           >
@@ -220,7 +220,7 @@ function Navbar() {
            
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: 'flex', md: 'flex' } }}>
-              <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+              <IconButton size="small" aria-label="show 4 new mails" color="inherit">
                 <Link to='/laundry' className='laundry-link'>
                 <Badge badgeContent={user?.laundry?.length || 0} color='primary' style={{color: 'gray'}}>
                   <DryCleaningIcon />
@@ -228,7 +228,7 @@ function Navbar() {
                 </Link>
               </IconButton>
               <IconButton
-                size="large"
+                size="small"
                 aria-label="show 17 new notifications"
                 color="inherit"
               >

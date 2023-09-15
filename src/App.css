@@ -120,12 +120,14 @@
   
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  font-family: 'Monserrat' , sans-serif;
    /* Vertically align items to the center */
 }
 
 .navbar-container > div {
   display: flex; /* Make inner divs flex containers */
-  gap: 10px; /* Adjust the gap between buttons as needed */
+  gap: 8px; /* Adjust the gap between buttons as needed */
 }
 
 .link {
