@@ -38,8 +38,8 @@ function HomePage() {
       <div >
         <div className="footer-text">
           
-        <p> Julia Guillotte <a href="https://www.linkedin.com/in/julia-guillotte" target="_blank" rel="noopener noreferrer"><img src="../../public/images/linkedin.png" height="15px" width="15px" alt=""/></a><a href="https://github.com/jsguillotte" target="_blank" rel="noopener noreferrer"><img src="../public/images/github.png" height="15px" width="15px" alt=""/></a>
-        | Maureen Treacy <a href="https://www.linkedin.com/in/maureen-treacy-30714190/" target="_blank" rel="noopener noreferrer"><img src="../../public/images/linkedin.png" height="15px" width="15px" alt=""/></a><a href="https://github.com/maureen-treacy" target="_blank" rel="noopener noreferrer"><img src="../public/images/github.png" height="15px" width="15px" alt=""/></a></p>
+        <p> Julia Guillotte <a href="https://www.linkedin.com/in/julia-guillotte" target="_blank" rel="noopener noreferrer"><img src="/../../public/images/linkedin.png" height="15px" width="15px" alt=""/></a><a href="https://github.com/jsguillotte" target="_blank" rel="noopener noreferrer"><img src="../public/images/github.png" height="15px" width="15px" alt=""/></a>
+        | Maureen Treacy <a href="https://www.linkedin.com/in/maureen-treacy-30714190/" target="_blank" rel="noopener noreferrer"><img src="/images/linkedin.png" height="15px" width="15px" alt=""/></a><a href="https://github.com/maureen-treacy" target="_blank" rel="noopener noreferrer"><img src="../public/images/github.png" height="15px" width="15px" alt=""/></a></p>
         </div>
       </div>
 
