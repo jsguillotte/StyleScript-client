@@ -24,7 +24,7 @@ function HomePage() {
           <img src="/images/Folded-clothing.jpg" alt="" width={300}/>
         </article>
         <article>
-          <h3>Keep track of your laundry</h3>
+          <h3>Keep track of laundry</h3>
           <img src="/images/laundry.jpg" alt="" width={300}/>
         </article>
         <article>
